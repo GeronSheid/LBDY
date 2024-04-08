@@ -1,0 +1,24 @@
+.oops {
+    color: var(--day-text-primary, #000);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 100%; /* 24px */
+  }
+
+.no-group-container {
+    border-radius: 26px;
+    background: var(--day-background-secondary, #FFF);
+    box-shadow: 0px 4px 11px 0px rgba(0, 0, 0, 0.10);
+    display: flex;
+    width: 890px;
+    padding: 56px 77px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+  }
+
+.btn-wrap {
+    display: flex;
+    gap: 24px;
+}

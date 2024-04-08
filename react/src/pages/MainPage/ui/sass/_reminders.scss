@@ -1,0 +1,244 @@
+@import "../../../../app/styles/shared";
+
+.reminders {
+  @include container($gapGrid, 7, -1, $gapGrid, true, true, 0);
+  height: $containerStandardHeight;
+  position: relative;
+  padding-right: 0;
+  overflow: hidden;
+
+  &__slider {
+    width: 100%;
+  }
+
+  &__wrapper {
+    padding-bottom: $gap8;
+    // padding-right: $gapGrid;
+    padding-left: 2px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: calc(#{$containerStandardHeight} - 3 * #{$gapGrid} - #{$gap32});
+  }
+
+  &__header {
+    align-items: flex-end;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: $gap32;
+    padding-right: 24px;
+
+    &-right {
+      align-items: flex-end;
+      display: flex;
+
+      >:not(:last-child) {
+        margin-right: $gap8;
+      }
+    }
+  }
+
+  &__wrapper {
+    padding-bottom: $gap8;
+    padding-right: $gapGrid;
+    padding-left: 2px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: calc(#{$containerStandardHeight} - 3 * #{$gapGrid} - #{$gap32});
+  }
+
+  &__hometasks,
+  &__deadlines {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: calc(100% - 24px);
+  }
+
+  &__deadlines &-item {
+    &__info {
+      position: relative;
+      flex-direction: row;
+    }
+
+    &__descr {
+      font-size: 14px;
+      line-height: 120%;
+      text-align: left;
+    }
+  }
+
+  &-item {
+    justify-content: flex-start;
+    align-items: flex-start;
+    display: flex;
+    width: 100%;
+
+
+    &__row {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: $gap32;
+    }
+
+    &__checkbox {
+      width: 28px;
+      margin-right: -0, 7%;
+    }
+
+    &__info {
+      cursor: pointer;
+      width: 100%;
+      flex: 1 0 100%;
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      gap: $gap12;
+      padding-right: $gap8;
+      position: relative;
+    }
+
+    &__title {
+      font-size: $fontMediumSize;
+      position: relative;
+      text-align: left;
+      transition: color $transitionSettings;
+    }
+
+    &__line-through {
+      position: absolute;
+      content: "";
+      left: 0;
+      top: 50%;
+      right: 0;
+      border-top: 1px solid;
+      border-color: inherit;
+      visibility: hidden;
+      width: 0;
+    }
+
+    &__info:hover &__title {
+      color: $colorMainGreenHover;
+    }
+
+
+    &__info:focus &__title {
+      color: $colorMainGray;
+    }
+
+    &__descr {
+      color: $colorFormLightGray;
+      font-size: $fontThinSize;
+    }
+
+    &_overdue &__title {
+      color: $colorInvalidRed !important;
+    }
+
+    &_overdue &__info:hover &__title {
+      color: $colorInvalidRedDark !important;
+    }
+
+    &_overdue &__descr {
+      color: $colorInvalidRedOpacity40;
+    }
+  }
+}
+
+@media (max-width: $tabletMaxWidth), (max-height: $tabletMaxHeight) {
+  .reminders {
+    height: $containerTabletHeight;
+
+    &__header {
+      margin-bottom: $gapGrid;
+    }
+
+    &-item__row {
+      gap: $gap8;
+    }
+
+    &-item__title {
+      font-size: $fontSizeSmall;
+    }
+
+    &-item__descr {
+      font-size: $fontSizeThin;
+    }
+
+    &-item:not(:last-child) {
+      margin-bottom: $gapGrid;
+    }
+
+    &__container {
+      height: 100%;
+    }
+
+    &__hometasks,
+    &__deadlines {
+      height: 100%;
+    }
+
+    &__slider {
+      height: 100%;
+      & .swiper-pagination {
+        bottom: 25% !important;
+      }
+
+      .swiper-pagination-bullet {
+        &-active {
+          background-color: $borderDark;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $mobileMaxWidth), (max-height: $mobileMaxHeight) {
+  .reminders {
+    @include container(0, 1, -1, $gapGrid, false, true, 0);
+    background-color: transparent;
+    box-shadow: none;
+    height: fit-content;
+    border-radius: 0;
+    .legend {
+      margin: auto 0;
+    }
+    &__header {
+      width: calc(100% - 16px);
+      align-items: center;
+      padding: 0;
+      margin: 0 9px $gap16 9px;
+      &-right {
+        margin-right: 7px;
+      }
+    }
+    &__container {
+      & .emptyList__title {
+        height: 200px;
+      }
+    }
+    &__hometasks,
+    &__deadlines {
+      height: fit-content;
+      width: 100%;
+      margin-bottom: $gap16;
+    }
+    &__card {
+      height: 205px;
+      padding: $gap16;
+      border-radius: $borderRadius;
+      border: solid 1px $borderDark;
+    }
+    &__slider {
+      & .swiper-pagination {
+        bottom: 8px !important;
+      }
+    }
+  }
+}

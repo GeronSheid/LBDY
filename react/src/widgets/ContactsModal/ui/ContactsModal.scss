@@ -1,0 +1,135 @@
+@import "app/styles/shared";
+@import "app/styles/_variables";
+@import "app/styles/_mixins";
+@import "shared/ui/ModalWrapper/ui/modalWrapper";
+
+.contacts-modal {
+  @include container($gap32, 0, 0, $gap40, false, false, 0);
+  @include modal();
+
+  display: flex;
+  flex-direction: column;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 60px;
+  padding: 56px 32px;
+  max-width: calc($modalMaxWidth - 100px);
+  max-height: calc(100dvh - 2 * #{$gapGrid});
+
+  .legend {
+    margin: 0 auto;
+    text-align: center;
+  }
+  .upper-string {
+    margin-bottom: $gap12;
+    &_big-margin {
+      margin-bottom: 40px !important;
+    }
+  }
+  .lower-string {
+    @include textRegular;
+    font-size: $fontSizeMedium;
+    color: $textSecondaryLight;
+    margin-bottom: 48px;
+  }
+
+  &__btn {
+    max-width: 300px;
+    padding: 56px $gap12 56px;
+  }
+  .btns-wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: $gap24;
+  }
+  .grey-btn {
+    @include filledButton();
+    background-color: $colorMainGray;
+    border-radius: $borderRadius;
+    border: 1px $borderLight solid;
+    overflow: hidden;
+    transition: color $transitionSettings;
+    &:hover,
+    &:focus {
+      background-color: $textSecondaryLight;
+    }
+
+    &:focus,
+    &:active {
+      background-color: $colorMainGrayOpacity40;
+    }
+  }
+}
+@media (max-width: $tabletMaxWidth), (max-height: $tabletMaxHeight) {
+  .contacts-modal {
+    max-width: 600px;
+    max-height: 192px;
+    padding: 32px 55px;
+    text-align: center;
+    .legend {
+      font-size: $fontSizeMedium;
+      align-self: auto;
+    }
+    .upper-string {
+      margin-bottom: $gap8;
+    }
+    .lower-string {
+      margin-bottom: 40px;
+      padding-bottom: 0px;
+    }
+    .btns-wrapper {
+      width: auto;
+      gap: $gap16;
+    }
+    .btn-shape__filled {
+      font-size: $fontSizeThin;
+      min-width: 220px;
+      max-height: 48px;
+    }
+  }
+}
+@media (max-width: $mobileMaxWidth), (max-height: $mobileMaxHeight) {
+  .contacts-modal {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    max-width: 100dvw;
+    max-height: 334px;
+
+    border-radius: $borderRadius $borderRadius 0 0;
+
+    margin-top: auto;
+    padding-top: 56px;
+
+    .legend {
+      margin-bottom: 0;
+    }
+    .upper-string {
+      font-size: $fontSizeMedium;
+      margin-bottom: $gap24;
+    }
+    .lower-string {
+      font-size: $fontSizeThin;
+      margin-bottom: 56px;
+    }
+    &__btn {
+      width: 343px;
+    }
+    .btns-wrapper {
+      justify-items: center;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto;
+      &:last-of-type {
+        padding-bottom: 0;
+      }
+    }
+    .btn-shape__filled {
+      width: 343px;
+      max-height: 48px;
+    }
+  }
+}

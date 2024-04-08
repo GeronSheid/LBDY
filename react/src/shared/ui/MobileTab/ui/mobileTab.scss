@@ -1,0 +1,58 @@
+@import 'app/styles/shared.scss';
+
+.mobileTab {
+  position: relative;
+  height: $gap32;
+  display: flex;
+  gap: $gap8;
+  padding: 3px 4px;
+  background-color: $backgroundShade;
+  border-radius: 23px;
+  width: calc(100% - 16px);
+  margin: 0 auto;
+  &_left {
+    & > .mobileTab__button:first-child {
+      font-weight: 600;
+    }
+    &::after {
+      position: absolute;
+      content: '';
+      top: 3px;
+      left: 4px;
+      height: 26px;
+      width: 50%;
+      background-color: white;
+      border-radius: 19px;
+      transition: left $transitionSettings;
+    }
+  }
+  &_right {
+    & > .mobileTab__button:last-child {
+      font-weight: 600;
+    }
+    &::after {
+      position: absolute;
+      content: '';
+      top: 3px;
+      left: calc(50% - 4px);
+      height: 26px;
+      width: 50%;
+      background-color: white;
+      border-radius: 19px;
+      transition: left $transitionSettings;
+    }
+  }
+  &__button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    padding: 5px 8px;
+    font-size: $fontSizeThin;
+    line-height: 20px;
+    border-radius: 19px;
+    z-index: 100;
+    transition: font-weight $transitionSettings;
+  }
+}

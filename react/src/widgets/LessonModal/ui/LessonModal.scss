@@ -1,0 +1,77 @@
+@import 'app/styles/shared';
+
+.lesson-info {
+  width: calc(100% - 64px);
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid #979797;
+  padding-bottom: 32px;
+  height: fit-content;
+  &__list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: $gap16;
+    font-size: $fontSizeSmall;
+    line-height: 1;
+    color: $colorFormLightGray;
+  }
+  &__item {
+    width: 100%;
+    display: flex;
+    gap: $gap16;
+    &_label {
+      width: 18%;
+    }
+    &_value {
+      color: $textMainDark;
+      width: 80%;
+      & > span {
+        &:not(:last-child) {
+          display: block;
+          margin-bottom: $gap8;
+        }
+      }
+    }
+  }
+  &__notThisGroup {
+    overflow: hidden;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-bottom: none;
+  }
+}
+
+@media (max-width: $tabletMaxWidth), (max-height: $tabletMaxHeight) {
+  .lesson-info {
+    &__item {
+      &_label {
+        width: 25%;
+      }
+      &_value {
+        width: 70%;
+      }
+    }
+  }
+}
+
+@media (max-width: $mobileMaxWidth), (max-height: $mobileMaxHeight) {
+  .lesson-info {
+    width: 100%;
+    border: none;
+    padding: 0;
+    &__list {
+      gap: $gap16;
+    }
+    &__item {
+      flex-direction: column;
+      gap: $gap8;
+    }
+  }
+  .lessonModal {
+    .modalWindow__footer {
+      flex: 1 0 content;
+    }
+  }
+}

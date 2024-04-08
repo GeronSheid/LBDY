@@ -1,0 +1,61 @@
+@import "app/styles/shared.scss";
+
+.acceptNewPhone {
+  &__main {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__inDevelopment {
+    @include container($gap40, 0, 0, 0, true, true, 0);
+    width: 600px;
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    gap: $gap16;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    color: $textMainDark;
+
+    & p {
+      margin: auto 0;
+      font-size: 20px;
+      font-weight: 500;
+    }
+    & a {
+      font-size: 20px;
+      font-weight: 500;
+      color: $mainColor;
+      transition: opacity $transitionSettings;
+      @media (any-hover: hover) {
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $mobileMaxWidth), (max-height: $mobileMaxHeight) {
+  .acceptNewPhone {
+    &__inDevelopment {
+      box-shadow: none;
+      justify-content: start;
+      width: 100%;
+
+      & p {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 400;
+      }
+      & a {
+        font-size: 14px;
+      }
+    }
+  }
+}

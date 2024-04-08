@@ -1,0 +1,61 @@
+@import "app/styles/shared.scss";
+
+.projectTaskMini__wrapper {
+  display: flex;
+  height: 24px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  position: relative;
+  &Left {
+    display: flex;
+    width: calc(100% - 40px);
+  }
+}
+.projectTaskMini__date {
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+  margin-right: 16px;
+}
+.projectTaskMini__name {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+  width: 70%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.projectTaskMini__line-through {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #fff;
+  visibility: hidden;
+  height: 1px;
+}
+
+@media (max-width: $tabletMaxWidth), (max-height: $tabletMaxHeight) {
+  .projectTaskMini__wrapper {
+    align-items: start;
+    margin-bottom: $gap24;
+  }
+  .projectTaskMini__wrapperLeft {
+    display: flex;
+    width: calc(100% - 40px);
+    flex-direction: column;
+    justify-content: start;
+    gap: 4px;
+  }
+  .projectTaskMini__line-through {
+    height: 1px;
+    top: 40%;
+  }
+}

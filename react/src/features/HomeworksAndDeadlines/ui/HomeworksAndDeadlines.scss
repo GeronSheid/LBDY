@@ -1,0 +1,5 @@
+@import "../../../app/styles/_variables.scss";
+
+.my-scrollbar-styles {
+  max-height: calc(#{$containerStandardHeight} - 3 * #{$gapGrid} - #{$gap32});
+}

@@ -1,0 +1,68 @@
+@import 'app/styles/shared.scss';
+
+
+.paymentMobileHistory {
+    display: grid;
+    grid-template-rows: min-content min-content auto min-content;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: $colorWhite;
+    padding: $gap16;
+    width: 100%;
+    &__closeButton {
+        width: 26px;
+        height: 42px;
+        background-image: url('shared/assets/img/arrow-black.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        transform: scaleX(-1);
+    }
+    &__title {
+        color: $colorBlack;
+        font-size: 34px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: 41px;
+        letter-spacing: 0.374px;
+        margin-bottom: 31px;
+    }
+    &__removeButton {
+        display: flex;
+        justify-content: center;        
+        justify-self: end;
+        background: $colorMainGreen;
+        max-width: 343px;
+        min-width: 343px;
+        height: 48px;
+        border-radius: $borderRadius;
+        font-size: $fontSizeSmall;
+        font-style: normal;
+        color: $colorWhite;
+        font-weight: 600;
+        padding: $gap16;
+        //margin: 0 auto;
+        margin-top: auto;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 90px;
+        transition: background-color 0.1s ease-in-out;
+
+    }
+    // &__removeButton {
+    //     display: block;
+    //     border-radius: $borderRadius;
+    //     background: $colorMainGreen;
+    //     margin: 0 auto;
+    //     height: 48px;
+    //     min-width: 348px;
+    //     max-width: 500px;
+    //     position: absolute;
+    //     color: $colorWhite;
+    //     font-size: $fontSizeSmall;
+    //     font-style: normal;
+    //     font-weight: 600;
+    // }   
+}

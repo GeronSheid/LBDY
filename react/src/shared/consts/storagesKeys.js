@@ -1,0 +1,7 @@
+export const registrationStep = "step"
+export const TOKEN = "token"
+export const registerData = "register_data"
+export const ERROR = "error"
+export const secondStepInfo = "sec_info"
+export const TIMER = "timer"
+export const REFRESH_TOKEN = "refresh_token"

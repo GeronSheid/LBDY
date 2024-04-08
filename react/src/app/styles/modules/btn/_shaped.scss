@@ -1,0 +1,133 @@
+@import "../../mixins";
+
+@mixin _filledButtonEffects() {
+  background-color: $colorMainGreen;
+  transition: background-color $transitionSettings;
+
+  &:hover {
+    background-color: $colorMainGreenHover;
+  }
+
+  &:focus,
+  &:active {
+    background-color: $colorMainGreenFocus;
+    outline: none;
+  }
+
+  &:disabled {
+    background-color: $colorMainGreen;
+    opacity: 0.4;
+  }
+}
+
+@mixin filledButton() {
+  @include textDemiBold($colorWhite);
+  @include _filledButtonEffects();
+
+  border-radius: $borderRadius;
+  font-size: $fontMediumSize;
+  padding: $gap16;
+  width: 100%;
+}
+
+@mixin addItemButton() {
+  @include _filledButtonEffects();
+
+  border-radius: 100%;
+  height: $gap32;
+  position: relative;
+  width: $gap32;
+
+  &::before,
+  &::after {
+    background-color: $colorWhite;
+    border-radius: 2px;
+    content: "";
+    height: 12px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 2px;
+  }
+
+  &::before {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+}
+
+@mixin emptyButton() {
+  @include textDemiBold($colorWhite);
+
+  background-color: transparent;
+  border: none;
+  border-radius: $borderRadius;
+  font-size: $fontMediumSize;
+  outline: 1px solid $colorWhite;
+  padding: $gap16;
+  transition: background-color $transitionSettings;
+  width: 100%;
+
+  &:hover {
+    background-color: $colorWhiteOpacity20;
+  }
+
+  &:focus,
+  &:active {
+    background-color: $colorWhiteOpacity20;
+    outline: 2px solid $colorWhite;
+  }
+}
+
+@mixin archiveButton() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $colorMainGray
+    no-repeat center center;
+  border-radius: 100%;
+  height: $gap32;
+  transition: background-color $transitionSettings;
+  width: $gap32;
+
+  &:hover {
+    background-color: $colorFormLightGray;
+  }
+
+  &:focus, &:active {
+    background-color: $colorMainGrayOpacity40;
+  }
+}
+@mixin patchButton() {
+  background: $colorMainGray url("shared/assets/img/patch-shaped.svg")
+    no-repeat center center;
+  border-radius: 100%;
+  height: $gap32;
+  transition: background-color $transitionSettings;
+  width: $gap32;
+
+  &:hover {
+    background-color: $colorFormLightGray;
+  }
+
+  &:focus, &:active {
+    background-color: $colorMainGrayOpacity40;
+  }
+}
+@mixin deleteButton() {
+  background: $colorMainGray url("shared/assets/img/delete-shaped.svg")
+    no-repeat center center;
+  border-radius: 100%;
+  height: $gap32;
+  transition: background-color $transitionSettings;
+  width: $gap32;
+
+  &:hover {
+    background-color: $colorFormLightGray;
+  }
+
+  &:focus, &:active {
+    background-color: $colorMainGrayOpacity40;
+  }
+}
+

@@ -1,0 +1,13 @@
+@import "./simple-input";
+
+@mixin textareaInputDark {
+  @include simpleInputDark();
+  max-height: 120px;
+  resize: none;
+}
+
+@mixin textareaInputLight {
+  @include simpleInputLight();
+  max-height: 120px;
+  resize: none;
+}

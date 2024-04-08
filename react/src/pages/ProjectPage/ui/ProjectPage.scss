@@ -1,0 +1,435 @@
+@import "app/styles/shared.scss";
+
+.projectTask__list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.projectPageWhisModal {
+  background: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+}
+.projectPage {
+  padding-left: 32px;
+
+  &__header {
+    grid-column: 1/-1;
+    width: 100%;
+    justify-self: start;
+    align-self: start;
+    margin-bottom: 12px;
+  }
+
+  &__backButton {
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+  }
+  &__projectWindow__downer {
+    height: 100%;
+  }
+  &__leftSide {
+    grid-column: 1/8;
+    width: 100%;
+    height: 80vh;
+    max-height: 1100px;
+    min-height: 630px;
+  }
+
+  &__projectWindow {
+    width: 100%;
+    height: 100%;
+    border-radius: 26px;
+    border: 1px solid#FFF;
+    background: #fff;
+    box-shadow: 0px 4px 11px 0px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+    overflow: hidden;
+  }
+  &__rightSide {
+    grid-column: 8/-1;
+    width: 100%;
+    align-self: start;
+    height: 640px;
+  }
+  &__titleRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 15px;
+    font-weight: 600;
+  }
+  &__title {
+    max-width: calc(100% - 100px);
+  }
+  &__buttonBar {
+    display: flex;
+    align-items: center;
+    width: 80px;
+    justify-content: space-between;
+    position: relative;
+  }
+  &__openArrow {
+    width: 24px;
+    fill: rgba(0, 0, 0, 0.4);
+  }
+  &__openArrow-down {
+    transition: transform 200ms;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  &__openArrow-up {
+    cursor: pointer;
+    position: absolute;
+    transform: scale(-1);
+    right: 0;
+    top: 0;
+    transition: transform 200ms;
+  }
+  &__subTitle {
+    width: 426px;
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    margin-bottom: 16px;
+    width: 100%;
+    padding-right: 90px;
+    overflow: hidden;
+    transition: max-height 200ms;
+    max-height: 29px;
+    cursor: pointer;
+    position: relative;
+  }
+  &__subTitle-open {
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    margin-bottom: 16px;
+    width: 100%;
+    padding-right: 90px;
+    overflow: hidden;
+    transition: max-height 200ms;
+    cursor: pointer;
+    position: relative;
+    max-height: 100%;
+  }
+  &__teamWrapper {
+    display: flex;
+    min-height: 40px;
+    gap: 4px;
+    width: 100%;
+    padding-bottom: 8px;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    max-height: 100px;
+    margin-bottom: 16px;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &List {
+      max-height: 100px;
+      height: fit-content;
+      margin-bottom: 16px;
+    }
+  }
+  &__teamUser {
+    display: inline-flex;
+  }
+  &__userAvatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  &__throwLine {
+    width: 100%;
+    height: 1px;
+    background-color: #979797;
+    margin-bottom: 32px;
+  }
+  &__about {
+    width: 100%;
+    min-height: 250px;
+    border-radius: 26px;
+    margin-bottom: 24px;
+    padding: 31px 0 24px 24px;
+    background: #687074;
+    box-shadow: 0px 4px 11px 0px rgba(0, 0, 0, 0.1);
+  }
+  &__aboutTitle {
+    color: #fff;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%;
+    margin-bottom: 23px;
+  }
+  &__progressWrapper {
+    display: flex;
+    height: 14px;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    max-width: calc(100% - 24px);
+  }
+  &__doneWrapper {
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    border: 2px solid #54a323;
+    overflow: hidden;
+    margin-bottom: 8px;
+    max-width: calc(100% - 24px);
+  }
+  &__doneLine {
+    background-color: #54a323;
+    height: 100%;
+    transition: width 500ms;
+  }
+  &__tasks {
+    margin-bottom: 13px;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+  }
+  &__tasksWrapper {
+    max-width: calc(100% - 24px);
+  }
+  &__button {
+    display: flex;
+    padding: 28px 24px;
+    width: 100%;
+    border-radius: 26px;
+    background: #fff;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    position: relative;
+    & svg {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: right 0.1s ease-in-out;
+    }
+    &:hover {
+      & svg {
+        right: 10px;
+      }
+    }
+  }
+  &__buttonText {
+    color: #000;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%;
+  }
+  &__GetDone {
+    display: flex;
+    width: 100%;
+    padding: 28px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 26px;
+    background: #54a323;
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%;
+    transition: background-color 0.1s ease-in-out;
+
+    &:hover {
+      background-color: #3d8113;
+    }
+  }
+}
+@media (max-width: $tabletMaxWidth), (max-height: $tabletMaxHeight) {
+  .projectPage {
+    &__titleRow {
+      margin-bottom: 0;
+    }
+
+    &__title {
+      color: #000;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    &__aboutTitle {
+      color: #fff;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 100%;
+      margin-bottom: 23px;
+    }
+    &__buttonText {
+      color: #000;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 100%;
+    }
+    &__GetDone {
+      font-size: 16px;
+      padding: 16px 20px;
+    }
+    &__backButton {
+      font-size: 20px;
+    }
+    &__header {
+      margin: 0;
+    }
+    &__userAvatar {
+      width: 32px;
+      height: 32px;
+    }
+    &__throwLine {
+      margin-bottom: 24px;
+    }
+    &__about {
+      height: 360px;
+      margin-bottom: 16px;
+    }
+    &__leftSide {
+      min-height: 568px;
+    }
+    &__button {
+      padding: 20px 24px;
+      margin-bottom: 16px;
+    }
+    &__openArrow-up,
+    &__openArrow-down {
+      top: 10px;
+    }
+  }
+}
+.main-container_project {
+  grid-template-rows: auto 1fr;
+}
+
+@media (max-width: $mobileMaxWidth), (max-height: $mobileMaxHeight) {
+  .projectPage {
+    &__subTitle {
+      &-open {
+        width: 100%;
+        padding-right: 90px;
+        overflow-y: auto; 
+        &::-webkit-scrollbar {
+          width: 0;
+        }
+      }
+    }
+    &__projectWindow {
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+      gap: $gap32;
+      border: none;
+      background-color: transparent;
+      box-shadow: none;
+      padding: 0;
+    }
+    &__projectWindow__upper {
+      width: 100%;
+      height: 100%;
+      border-radius: 26px;
+      border: 1px solid#FFF;
+      background: #fff;
+      box-shadow: 0px 4px 11px 0px rgba(0, 0, 0, 0.1);
+      padding: 24px;
+    }
+    &__projectWindow__downer {
+      width: 100%;
+      height: 100%;
+      box-shadow: 0px 4px 11px 0px rgba(0, 0, 0, 0.1);
+    }
+    &__taskWrap {
+      padding: 24px;
+      border-radius: 26px;
+      border: 1px solid #FFF;
+      background: #fff;
+      box-shadow: 0px 4px 11px 0px rgba(0, 0, 0, 0.1);
+    }
+    &__leftSide {
+      flex: 1 0 auto;
+      overflow: scroll;
+      &::-webkit-scrollbar {
+        width: 0;
+      }
+    }
+    &__rightSide {
+      height: auto;
+      width: 100%;
+    }
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      // margin-bottom: 32px;
+      padding: 10px 16px;
+      & a {
+        font-size: 32px;
+      }
+      
+    }
+    &__title {
+      font-size: 28px;
+    }
+    &__about {
+      display: none;
+    }
+    &__mobileMenu {
+      grid-column: 1/-1;
+    
+        &__item {
+          height: 44px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          border-bottom: 1px solid $borderMobileMenu;
+          font-size: $fontSmallSize;
+          &:last-child {
+            border-bottom: none;
+          }
+        } 
+        &__button {
+          display: block;
+          color: $colorBlack;
+          font-style: normal;
+          font-weight: 400;
+          letter-spacing: -0.408px;
+        }
+      }
+  }
+
+  .main-container_project {
+    height: 100dvh !important;
+    background-color: #ECEBE7;
+  }
+
+}

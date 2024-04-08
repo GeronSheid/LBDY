@@ -1,0 +1,39 @@
+@import 'app/styles/shared.scss';
+
+
+.paymentHistoryItem {
+    border-bottom: 1px solid rgba(60, 60, 67, 0.36);
+    margin-bottom: $gap8;
+
+    &__price {
+        color: #000;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+    }
+    &__type {
+        color: #000;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        margin-bottom: $gap8;
+        opacity: 0.5;
+    }
+    &__date {
+        color: #000;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        margin-bottom: $gap16;
+        opacity: 0.5;
+    }
+    &__url {
+        color: #000;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        margin-bottom: $gap8;
+        opacity: 0.5;
+
+    }
+}

@@ -1,0 +1,153 @@
+@import "app/styles/shared";
+@import "app/styles/_variables";
+@import "app/styles/mixins";
+
+.contacts {
+  @include container($gap24, 3, 7, $gap40, false, false, $gap16);
+  position: relative;
+
+  height: $containerStandardHeight;
+
+  background-color: $colorWhite;
+  box-shadow: 0px 4px 11px 0px rgba(0, 0, 0, 0.1);
+
+  &__header {
+    @include textDemiBold;
+    margin-bottom: $gap32;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100% - 56px);
+  }
+
+  &__contacts-wrap {
+    display: flex;
+    gap: $gapGrid;
+  }
+
+  &__title {
+    @include textRegular;
+    margin-bottom: $gap8;
+    opacity: 0.5;
+
+    font-size: $fontSizeMedium;
+    color: $colorMainGray;
+  }
+
+  &__text {
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    color: var(--day-text-primary, $colorBlack);
+
+    font-size: $fontSizeMedium;
+    a {
+      &:hover {
+        opacity: 0.8;
+        transition: $transitionSettings;
+      }
+    }
+    &:last-of-type {
+      margin-bottom: $gap12;
+    }
+  }
+
+  &__info {
+    width: 100%;
+    max-height: 70%;
+    //overflow-y: auto;
+  }
+
+  &__policy-wrap {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: $gap12;
+  }
+
+  &__policy {
+    @include textDemiBold;
+    font-size: $fontThinSize;
+
+    color: $colorMainGreen;
+    a {
+      &:hover {
+        color: $colorMainGreenHover;
+        transition: color $transitionSettings;
+      }
+    }
+  }
+  .swiper {
+    margin-left: 0;
+  }
+  &__slider {
+    height: 100%;
+    overflow-y: auto;
+
+    & .swiper-pagination {
+      bottom: 25% !important;
+    }
+    .swiper-pagination-bullet {
+      &-active {
+        background-color: $textSecondaryGray;
+      }
+    }
+  }
+}
+@media (max-width: $tabletMaxWidth), (max-height: $tabletMaxHeight) {
+  .contacts {
+    height: $containerTabletHeight;
+    padding: $gap24 $gap24 $gap16 $gap24;
+    & > div > div {
+      &:not(:last-of-type) {
+        margin-bottom: $gap16;
+      }
+    }
+    overflow: hidden;
+    &__header {
+      font-size: $fontSizeMedium;
+      margin-bottom: $gap24;
+    }
+
+    &__content {
+      height: 120%;
+      .swiper {
+        width: 100% !important;
+        padding-right: 0 !important;
+      }
+      .swiper-pagination-fraction,
+      .swiper-pagination-custom,
+      .swiper-horizontal > .swiper-pagination-bullets,
+      .swiper-pagination-bullets.swiper-pagination-horizontal {
+        bottom: 30px;
+      }
+    }
+
+    &__title {
+      margin-bottom: $gap4;
+      font-size: $fontSizeSmall;
+    }
+    &__text {
+      font-size: $fontSizeSmall;
+      &:last-of-type {
+        margin-bottom: $gap12;
+      }
+    }
+    &__policy {
+      //! display is not block now. Don't fix for desktop
+
+      display: block;
+
+      // &:not(:last-of-type) {
+      // 	margin-bottom: $gap16;
+      // }
+    }
+    &__policy-wrap {
+      flex-direction: column;
+    }
+  }
+}

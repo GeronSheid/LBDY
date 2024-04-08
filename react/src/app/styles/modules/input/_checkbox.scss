@@ -1,0 +1,93 @@
+@import "../../mixins";
+
+@mixin checkBoxContainer {
+  align-items: center;
+  display: inline-flex;
+  justify-content: start;
+  
+  &-label {
+    display: inline-flex;
+    &::before {
+      background: transparent no-repeat center center;
+      content: "";
+      cursor: pointer;
+      display: inline-block;
+
+    }
+
+  }
+
+  &-input {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+  }
+}
+
+// @mixin checkMark() {
+//   &-label {
+//     &::before {
+//       border: 1px solid $colorFormLightGray;
+//       border-radius: 100%;
+//       height: $gapGrid;
+//       transition: border-color $transitionSettings;
+//       width: $gapGrid;
+//     }
+//     &:checked {
+//       background-image: url("shared/assets/img/checkmark.svg");
+//     }
+//     &:hover::before {
+//       border-color: $colorMainGreenHover;
+//     }
+//   }
+
+//   &-label-mini {
+//     &::before {
+//       border: 1px solid white;
+//       border-radius: 100%;
+//       height: $gapGrid;
+//       margin-right: $gap16;
+//       transition: border-color $transitionSettings;
+//       width: $gapGrid;
+//     }
+//     &:checked {
+//       background-image: url("shared/assets/img/checkmark.svg");
+//     }
+//     &:hover::before {
+//       border-color: $colorMainGreenHover;
+//     }
+//   }
+//   &-input:checked + &-label::before {
+//     background-color: $colorMainGreen;
+//     border-color: $colorMainGreen;
+//     background-image: url("shared/assets/img/checkmark.svg");
+//   }
+// }
+
+.label_checked {
+  background-color: $colorMainGreen;
+  border-color: $colorMainGreen !important;
+  background-image: url("shared/assets/img/checkmark.svg");
+  border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  &:hover {
+    border-color: $colorMainGreen !important;
+  }
+}
+
+@mixin toggle() {
+  &-label {
+    &::before {
+      background-image: url("shared/assets/img/toggle-off.svg");
+      height: $gapGrid;
+      // margin-right: $gap12;
+      width: $gap40;
+    }
+  }
+
+  &-input:checked + &-label::before {
+    background-image: url("shared/assets/img/toggle-on.svg");
+  }
+}
+

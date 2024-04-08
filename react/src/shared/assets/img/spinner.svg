@@ -1,0 +1,59 @@
+<!--<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--<path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12ZM3.99935 12C3.99935 16.4186 7.58136 20.0007 12 20.0007C16.4186 20.0007 20.0007 16.4186 20.0007 12C20.0007 7.58136 16.4186 3.99935 12 3.99935C7.58136 3.99935 3.99935 7.58136 3.99935 12Z" fill="url(#paint0_angular_566_144)"/>-->
+<!--    <circle cx="3" cy="12" r="1" fill="white"/>-->
+<!--<defs>-->
+<!--<radialGradient id="paint0_angular_566_144" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(12 12) rotate(180) scale(9.33333)">-->
+<!--<stop stop-color="white" stop-opacity="0"/>-->
+<!--<stop offset="0.0652464" stop-color="white" stop-opacity="0"/>-->
+<!--<stop offset="1" stop-color="white"/>-->
+<!--</radialGradient>-->
+<!--</defs>-->
+<!--<animateTransform-->
+<!--    from="0 0 0"-->
+<!--    to="360 0 0"-->
+<!--    attributeName="transform"-->
+<!--    type="rotate"-->
+<!--    repeatCount="indefinite"-->
+<!--    dur="1300ms"-->
+<!--/>-->
+<!--</svg>-->
+
+<svg
+xmlns="http://www.w3.org/2000/svg"
+width="24"
+height="24"
+viewBox="0 0 200 200"
+fill="none"
+color="white"
+>
+<defs>
+    <linearGradient id="spinner-secondHalf">
+        <stop offset="0%" stop-opacity="0" stop-color="currentColor" />
+        <stop offset="100%" stop-opacity="0.5" stop-color="currentColor" />
+    </linearGradient>
+    <linearGradient id="spinner-firstHalf">
+        <stop offset="0%" stop-opacity="1" stop-color="currentColor" />
+        <stop offset="100%" stop-opacity="0.5" stop-color="currentColor" />
+    </linearGradient>
+</defs>
+
+<g stroke-width="10">
+    <path stroke="url(#spinner-secondHalf)" d="M 4 100 A 96 96 0 0 1 196 100" />
+    <path stroke="url(#spinner-firstHalf)" d="M 196 100 A 96 96 0 0 1 4 100" />
+
+    <path
+        stroke="currentColor"
+        stroke-linecap="round"
+        d="M 4 100 A 96 96 0 0 1 4 98"
+    />
+</g>
+
+<animateTransform
+    from="0 0 0"
+    to="360 0 0"
+    attributeName="transform"
+    type="rotate"
+    repeatCount="indefinite"
+    dur="1300ms"
+/>
+</svg>

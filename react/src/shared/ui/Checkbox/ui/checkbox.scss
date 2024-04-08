@@ -1,0 +1,76 @@
+@import 'app/styles/shared.scss';
+
+.checkbox {
+  &__frame {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: $gapGrid;
+    height: $gapGrid;
+    border: 1px solid $colorWhite;
+    border-radius: 50%;
+    transition: border-color $transitionSettings, background-color $transitionSettings;
+    cursor: pointer;
+    &:hover {
+      border-color: $colorMainGreenHover;
+    }
+    &:focus {
+      border-color: $colorMainGreenFocus;
+    }
+
+    &_checked {
+      background-color: $colorMainGreen;
+      border-color: $colorMainGreen !important;
+
+      &:hover {
+        background-color: $colorMainGreenHover;
+        border-color: $colorMainGreenHover;
+      }
+      &:focus {
+        border-color: $colorMainGreenFocus;
+        background-color: $colorMainGreenFocus;
+      }
+    }
+
+    &_dark {
+      border-color: $colorFormLightGray;
+    }
+
+    &_invalid {
+      border-color: $borderDark_invalid;
+    }
+  }
+
+  &__mark {
+    opacity: 0;
+    transition: opacity $transitionSettings;
+
+    &_active {
+      opacity: 1;
+    }
+  }
+
+  &__input_hidden {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+  }
+}
+@media (max-width: 1132px) {
+  .checkbox {
+    &__wrapper {
+      & label {
+        font-size: $fontSizeSmall !important;
+      }
+    }
+  }
+}
+@media (max-width: $mobileMaxWidth), (max-height: $mobileMaxHeight) {
+  .checkbox {
+    &__frame {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  
+}

@@ -1,0 +1,26 @@
+@import "../../../app/styles/_variables.scss";
+
+.scrollbar-height {
+  height: calc(100vh - 2 * #{$gapGrid} - 2 * #{$gap32} - 64px);
+}
+.projectType--wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  width: 380px;
+}
+.modal-projects {
+  padding: 0;
+  padding-bottom: 24px;
+
+  .form-wrapper {
+    padding: 32px;
+    padding-top: 2px;
+    padding-bottom: 0;
+  }
+
+  .projects__header-left {
+    padding: 32px;
+    padding-bottom: 0;
+  }
+}

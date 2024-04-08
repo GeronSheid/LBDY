@@ -1,0 +1,39 @@
+@import "app/styles/shared.scss";
+
+.patch-user-modal__chenge-group__wrapper {
+  margin-top: $gap24;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: $gap24;
+}
+.patch-user-modal__text {
+  width: 100%;
+  text-align: start;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 20px;
+}
+.telPaswordInputs {
+  display: flex;
+  gap: 10px;
+}
+.patch-user-modal__fac-selector {
+  height: 68px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: $tabletMaxWidth), (max-height: $tabletMaxHeight) {
+  .patch-user-modal__text {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: $mobileMaxWidth), (max-height: $mobileMaxHeight) {
+  .patch-user-modal__text {
+    color: $colorFormLightGray;
+    font-size: 14px;
+  }
+}

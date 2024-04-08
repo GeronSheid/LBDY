@@ -1,0 +1,10 @@
+@import "app/styles/shared.scss";
+
+.projectMediaModal {
+  &__mediaList {
+    width: 100%;
+    margin-bottom: $gap32;
+    padding-bottom: $gap16;
+    border-bottom: 1px solid $borderDark;
+  }
+}

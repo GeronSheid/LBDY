@@ -1,0 +1,135 @@
+@import "../../../../app/styles/variables";
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.react-datepicker {
+  box-shadow: $moduleBoxShadow;
+  border-radius: $borderRadius !important;
+  border: none !important;
+  background-color: $backgroundDark_day !important;
+  overflow: hidden !important;
+
+  &-popper {
+    text-transform: capitalize;
+    position: relative !important;
+    margin-top: -65px !important;
+    z-index: 10 !important;
+  }
+
+  &__header {
+    border: none !important;
+    padding: 24px !important;
+    padding-bottom: 0 !important;
+    background-color: $colorMainGray !important;
+  }
+  &__current-month {
+    font-size: 20px !important;
+    margin-bottom: 30px !important;
+    color: white !important;
+  }
+  &__navigation {
+    top: 19px !important;
+    &-icon::before {
+      border-width: 2px 2px 0 0 !important;
+      border-color: $colorWhiteOpacity70 !important;
+    }
+  }
+  &__day {
+    color: white !important;
+    font-size: 20px !important;
+    font-weight: 500 !important;
+    margin: 2px 8px !important;
+    padding: 10px 10px !important;
+    width: 48px !important;
+    border-radius: 100% !important;
+    transition: background-color $transitionSettings, color $transitionSettings;
+
+    &:hover {
+      background-color: $colorMainGreenHover !important;
+    }
+
+    &:nth-last-child(1),
+    &:nth-last-child(2) {
+      color: $colorWhiteOpacity50 !important;
+
+      &:hover {
+        color: white !important;
+      }
+    }
+
+    &-name {
+      color: $colorWhiteOpacity50 !important;
+      font-size: 16px !important;
+      margin: 2px 8px !important;
+      padding: 10px 10px !important;
+      width: 48px !important;
+    }
+    &--selected {
+      background-color: $colorWhiteOpacity50 !important;
+    }
+    &--keyboard-selected {
+      background-color: $colorWhiteOpacity20 !important;
+    }
+  }
+}
+
+@media (max-width: $tabletMaxWidth), (max-height: $tabletMaxHeight) {
+  .react-datepicker {
+    &__current-month {
+      font-size: 18px !important;
+      margin-bottom: 20px !important;
+    }
+    &__day {
+      font-size: 18px !important;
+      margin: 2px 4px !important;
+      padding: 8px 8px !important;
+      width: 44px !important;
+
+      &-name {
+        margin: 2px 4px !important;
+        padding: 8px 8px !important;
+        width: 44px !important;
+      }
+    }
+  }
+}
+
+@media (max-width: $mobileMaxWidth), (max-height: $mobileMaxHeight) {
+  .react-datepicker {
+    &-popper {
+      position: absolute !important;
+      margin-top: 0 !important;
+    }
+    &__header {
+      padding: 16px !important;
+      padding-bottom: 0 !important;
+    }
+    &__current-month {
+      font-size: 14px !important;
+      margin-bottom: 12px !important;
+    }
+    &__navigation {
+      top: 9px !important;
+    }
+    &__day {
+      font-size: 14px !important;
+      margin: 5px 5px !important;
+      padding: 2px 2px !important;
+      width: 32px !important;
+
+      &-name {
+        font-size: 12px !important;
+        margin: 5px 5px !important;
+        padding: 2px 2px !important;
+        width: 32px !important;
+      }
+    }
+  }
+}

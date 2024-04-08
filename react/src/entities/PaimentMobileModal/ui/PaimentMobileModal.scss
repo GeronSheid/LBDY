@@ -1,0 +1,37 @@
+@import 'app/styles/shared.scss';
+
+
+.paymentMobileModal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    padding: $gap16;
+    z-index: 100000;
+
+    &__closeButton {
+        width: 26px;
+        height: 42px;
+        background-image: url('shared/assets/img/arrow-black.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        transform: scaleX(-1);
+        margin-left: -8px;
+    }
+    &__title {
+        color: #000;
+        font-size: 34px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: 41px;
+        letter-spacing: 0.374px;
+        margin-bottom: 31px;
+    }
+    & .emptyList__title {
+        border: 0;
+        border-radius: 0;
+        height: 70%;
+      }
+}

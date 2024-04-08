@@ -1,0 +1,100 @@
+@import "../../mixins";
+
+@mixin forkButton() {
+  @include textDemiBold($colorMainGreen);
+
+  font-size: $fontMediumSize;
+  line-height: 100%;
+  transition: color $transitionSettings;
+
+  &:hover {
+    color: $colorMainGreenHover;
+  }
+
+  &:focus,
+  &:active {
+    color: $colorMainGreenFocus;
+    outline: none;
+  }
+
+  &:disabled {
+    color: $colorMainGreen;
+    opacity: 0.4;
+  }
+}
+
+@mixin tabButton($color) {
+  color: $color;
+  opacity: 0.5;
+  transition: opacity $transitionSettings;
+  cursor: pointer;
+
+  &:first-child {
+    margin-right: $gapGrid;
+  }
+
+  &:hover {
+    opacity: 0.75;
+  }
+
+  &:focus,
+  &:active {
+    opacity: 0.9;
+    outline: none;
+  }
+
+  &_active {
+    @include textDemiBold($color);
+    opacity: 1 !important;
+  }
+  @media (max-width: $tabletMaxWidth), (max-height: $tabletMaxHeight){
+    font-size: 20px;
+    line-height: 1;
+    &:first-child {
+      margin-right: $gap16;
+    }
+  }
+}
+
+@mixin exitModalButton($color, $colorHover, $colorFocus) {
+  color: $color;
+  position: absolute;
+  transition: color $transitionSettings;
+  height: $gapGrid;
+
+  &:hover {
+    color: $colorHover;
+  }
+
+  &:focus,
+  &:active {
+    color: $colorFocus;
+  }
+}
+
+@mixin serviceGrayButton() {
+  @include textDemiBold($colorFormLightGray);
+  font-size: $fontSmallSize;
+  transition: color $transitionSettings, opacity $transitionSettings;
+
+  &:not(:last-child) {
+    margin-right: $gapGrid;
+  }
+
+  &:hover {
+    color: $colorMainGreenHover;
+  }
+
+  &:focus,
+  &:active {
+    color: $colorMainGreenFocus;
+  }
+
+  &_delete {
+    &:focus,
+    &:active,
+    &:hover {
+      color: $colorInvalidRed;
+    }
+  }
+}

@@ -1,0 +1,50 @@
+@import "app/styles/shared";
+
+
+.imgModal {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  &__img-container {
+    max-height: 60vh;
+    width: calc(100% - 100px);
+    height: 100%;
+    z-index: 10000;
+    opacity: 1;
+    background-color: transparent;
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: scale-down;
+      object-position: center;
+    }
+  }
+  &__slider-wrap {
+    width: 100%;
+    // height: 30vh;
+    z-index: 10000;
+    .swiper-slide {
+      width: 33%;
+    }
+    .img-container {
+      height: 30vh;
+    }
+  }
+
+  &__cross {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    align-self: flex-end;
+    color: $textSecondaryLight;
+    cursor: pointer;
+    transition: color $transitionSettings;
+    &:hover {
+      color: $textSecondaryLight_hover;
+    }
+  }
+}

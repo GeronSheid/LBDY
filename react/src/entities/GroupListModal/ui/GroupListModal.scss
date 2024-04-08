@@ -1,0 +1,67 @@
+@import 'app/styles/shared.scss';
+
+.groupListModal {
+  &__wrapper {
+    width: 800px;
+    height: 70%;
+    background-color: white;
+    border-radius: 26px;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+    top: 100px;
+    z-index: 100;
+    padding: 32px;
+  }
+  &__upperRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+  &__title {
+    color: #000;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    height: 1em;
+    display: flex;
+    gap: 12px;
+  }
+  &__close {
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+  }
+  &__close:hover {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+    cursor: pointer;
+  }
+  &__download {
+    display: block;
+    height: $gapGrid;
+  }
+}
+@media (max-width: $tabletMaxWidth), (max-height: $tabletMaxHeight) {
+  .groupListModal {
+    &__wrapper {
+      width: 600px;
+      height: 70%;
+      border-radius: $borderRadius;
+      transform: translate(-50%);
+      padding: 26px;
+    }
+    &__upperRow {
+      margin-bottom: $gap32;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+@import "app/styles/shared.scss";
+
+.profileManagement {
+  @include container($gapGrid, 1, -1, 0, true, true, 0);
+  height: 62vh;
+  overflow: hidden;
+  &__header {
+    display: flex;
+    justify-content: start;
+    margin-bottom: 44px;
+  }
+  &__content-wrap {
+    height: calc(100% - 102px);
+    width: 100%;
+  }
+}
+@media (max-width: $tabletMaxWidth) {
+  .profileManagement {
+    height: calc(100vh - $containerTabletHeight - 58px - 24px);
+  }
+}

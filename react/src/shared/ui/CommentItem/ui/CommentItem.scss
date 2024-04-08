@@ -1,0 +1,37 @@
+.commentItem {
+  &__wrapper {
+    display: flex;
+    gap: 8px;
+    justify-content: start;
+    align-items: start;
+    
+    &:not(:last-child) {
+        margin-bottom: 16px;
+    }
+  }
+  &__avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 100%;
+    background-color: black;
+    overflow: hidden;
+  }
+  &__texts {
+    max-width: calc(100% - 40px);
+  }
+  &__user {
+    color: #000;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%;
+    margin-bottom: 8px;
+  }
+  &__message {
+    color: #000;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+  }
+}

@@ -1,0 +1,20 @@
+@import "app/styles/shared.scss";
+
+.remindersManagement {
+  height: 100%;
+  &__header {
+    width: 100%;
+    padding: 17px 0 21px 0;
+    border-top: $borderParams;
+    border-bottom: $borderParams;
+  }
+  &__filters {
+    display: grid;
+    align-items: start;
+    justify-items: start;
+    grid-template-columns: 1fr 160px 100px 220px 60px 48px;
+    gap: $gap12;
+    font-size: $fontSizeSmall;
+    color: $textSecondaryDark;
+  }
+}

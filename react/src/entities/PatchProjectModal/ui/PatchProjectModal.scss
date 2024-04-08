@@ -1,0 +1,11 @@
+@import "../../../app/styles/_variables.scss";
+
+.scrollbar-height {
+  height: calc(100vh - 2 * #{$gapGrid} - 2 * #{$gap32} - 64px);
+}
+.projectType--wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  width: 380px;
+}

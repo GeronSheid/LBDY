@@ -1,0 +1,24 @@
+@import 'app/styles/shared.scss';
+
+
+.profileMenu {
+  padding: $gap8;
+
+  grid-column: 1/-1;
+
+    &__item {
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid $borderMobileMenu;
+      font-size: $fontSmallSize;
+    } 
+    &__button {
+      display: block;
+      color: $colorBlack;
+      font-style: normal;
+      font-weight: 400;
+      letter-spacing: -0.408px;
+    }
+  }

@@ -1,0 +1,90 @@
+@import "pages/MainPage/ui/sass/main.scss";
+@import "app/styles/shared";
+@import "app/styles/_variables";
+@import "app/styles/mixins";
+
+@media (max-width: $mobileMaxWidth), (max-height: $mobileMaxHeight) {
+	.mobile-contacts {
+		height: 100dvh;
+		top: 0;
+		bottom: 0;
+		left: 0;		
+		border-radius: 0%;
+		padding: $gap16;
+		background-color: $backgroundLight_day;
+		display: grid;
+		grid-template-rows: min-content auto;
+
+		.header-mobile {
+			font-size: 34px;
+			font-weight: 900;
+			letter-spacing: 0.37px;
+			margin-bottom: 31px;
+		}
+		.contacts__mobile {
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: row;
+			align-items: center;
+			&:last-of-type{
+				margin-bottom: $gap20;
+			}
+		}
+		.contacts__title {
+			width: 30%;
+			text-align: left;
+			margin-bottom: $gap8;
+		}
+		.contacts__text {
+			width: 70%;
+			text-align: left;
+			&:last-of-type {
+				margin-bottom: $gap8;
+			}
+		}
+
+		.contacts__content {
+			height: auto;
+		}
+		
+		.close-btn {
+			width: 26px;
+			height: 42px;
+			background-image: url('shared/assets/img/arrow-black.png');
+			background-repeat: no-repeat;
+			background-position: center;			
+			transform: scaleX(-1);
+			margin-left: -8px;
+		}
+		
+
+		.mobile-links-menu {
+			grid-column: 1/-1;
+			&__item {
+				height: 44px;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				border-bottom: 1px solid $borderMobileMenu;
+				&:nth-child(1) {
+					border-top: 1px solid $borderMobileMenu;
+				}
+		
+			}
+			&__button {
+				display: block;
+				color: $colorBlack;
+				font-size: 16px;
+				font-style: normal;
+				font-weight: 400;
+				letter-spacing: -0.408px;
+			}		
+		}	
+		
+		.contacts__policy {
+			&:last-of-type {
+				margin-bottom: $gap16;
+			}
+		}		
+	}   
+}

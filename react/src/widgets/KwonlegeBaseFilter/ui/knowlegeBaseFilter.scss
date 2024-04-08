@@ -1,0 +1,125 @@
+@import 'app/styles/shared.scss';
+
+.plate {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: $gap32 $gapGrid;
+  background-color: $colorWhite;
+  height: 62vh;
+  border-radius: 26px;
+  box-shadow: 0px 4px 11px 0px rgba(0, 0, 0, 0.1);
+  justify-content: start;
+}
+
+.knowlegeBase-filters {
+  max-height: $containerStandardHeight;
+  gap: $gap32;
+  & .btn-text__service-gray {
+    grid-column: 1/2;
+    align-self: center;
+    text-align: start;
+  }
+  & .btn-shape__filled {
+    grid-column: 3/-1;
+  }
+  &__content {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: $gap16;
+    & .field {
+      &:not(:last-child) {
+        margin-bottom: 0;
+      }
+    }
+  }
+  
+  &__row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    &_full-row {
+      grid-template-columns: 1fr;
+    }
+    &_search-icon {
+      position: relative;
+      & svg {
+        position: absolute;
+        right: $gapGrid;
+        top: 50%;
+        color: #979797;
+        transform: translateY(-50%);
+        transition: color $transitionSettings;
+      }
+      &:hover {
+        & svg {
+          color: $colorMainGreenHover;
+        }
+      }
+      &:focus {
+        & svg {
+          color: $colorMainGreenHover;
+        }
+      }
+    }
+    &:last-child {
+      margin-top: auto;
+    }
+  }
+
+  & .choices__inner {
+    padding: $gap16 $gap32;
+  }
+
+  &__searchModal {
+    width: $modalMaxWidth !important;
+    &-header {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: $gap32;
+    }
+
+  }
+}
+
+@media (max-width: $tabletMaxWidth), (max-height: $tabletMaxHeight) {
+  .plate {
+    height: calc(100vh - $containerTabletHeight - 58px - 24px);
+  }
+  .knowlegeBase-filters {
+    &__content {
+      width: 100%;
+    }
+    max-height: 220px;
+  }
+}
+
+@media (max-width: $mobileMaxWidth), (max-height: $mobileMaxHeight) {
+  .plate {
+    height: calc(100% - 88px);
+  }
+  .knowlegeBase-filters {
+    
+    &__searchModal {
+      max-height: 100% !important;
+      height: 100% !important;
+      padding: 0;
+      position: fixed;
+      bottom: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100% !important;
+      border-radius: 0!important;
+      z-index: 1000000;
+      margin: 0 !important;
+    }
+    &__row {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+}

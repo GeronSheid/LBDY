@@ -1,0 +1,88 @@
+@import 'app/styles/shared.scss';
+
+.input-submit {
+  cursor: pointer;
+}
+
+.on-drag {
+  outline: 1px dashed rgb(255, 255, 255, 0.9);
+}
+
+.img-container {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  margin-top: 30px;
+  & img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  &_active {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+
+.delete-image {
+  cursor: pointer;
+  position: absolute;
+  outline: none;
+  top: -4%;
+  left: 95%;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba(#000, 0.3);
+  border: 0;
+  z-index: 10000;
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: calc(50% - 1px);
+    left: calc(50% - 5px);
+    width: 10px;
+    height: 2px;
+    background-color: #fff;
+  }
+}
+
+.img-slider {
+  .swiper-slide {
+    height: 100%;
+    width: calc(33% - 24px) !important;
+  }
+}
+.modal-hometasks {
+  padding: 0;
+  padding-bottom: 24px;
+
+  .form-wrapper {
+    padding: 32px;
+    padding-top: 2px;
+    padding-bottom: 0;
+  }
+
+  .legend {
+    padding: 32px;
+    padding-bottom: 0;
+  }
+}
+
+@media (max-width: $mobileMaxWidth), (max-height: $mobileMaxHeight) {
+  .img-slider {
+    .swiper-slide {
+      height: 100%;
+      width: calc(100% - 24px) !important;
+    }
+  }
+}

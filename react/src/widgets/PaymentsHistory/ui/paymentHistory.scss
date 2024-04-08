@@ -1,0 +1,14 @@
+@import 'app/styles/shared.scss';
+
+.paymentsHistory {
+  &__controls {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 19px;
+  }
+  &__nextDate {
+    font-size: 20px;
+    color: $textSecondaryDark;
+  }
+}

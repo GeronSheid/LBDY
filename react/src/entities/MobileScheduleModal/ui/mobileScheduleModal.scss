@@ -1,0 +1,56 @@
+@import 'app/styles/shared.scss';
+
+.mobileScheduleModal {
+  position: absolute;
+  height: calc(100% - 120px);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: $gap8;
+  background-color: $backgroundLight_day;
+  z-index: 1000;
+  &__btn {
+    width: 26px;
+    height: 42px;
+    background-image: url('shared/assets/img/arrow-black.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: scaleX(-1);
+  }
+  &__content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: $gap16;
+  }
+  &__title-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 31px;
+  }
+  &__legend {
+    font-size: 33px;
+    font-weight: 600;
+  }
+}
+
+.mobileScheduleModalView {
+  &-enter {
+    transform: translateX(-105%);
+  }
+
+  &-enter-active {
+    transform: translateX(0);
+    transition: transform 300ms ease-in
+  }
+  &-exit {
+    transform: translateX(0);
+  }
+  &-exit-active {
+    transform: translateX(-100%);
+    transition: transform 300ms ease-in
+  }
+}

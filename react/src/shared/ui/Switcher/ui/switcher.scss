@@ -1,0 +1,97 @@
+@import "app/styles/shared.scss";
+
+.switcher {
+  &__wrapper {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+    margin-top: 32px;
+  }
+  &__frame {
+    display: block;
+    position: relative;
+    width: 36px;
+    height: 22px;
+    background-color: $borderDark;
+    border-radius: 16px;
+    cursor: pointer;
+    &::after {
+      content: "";
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      left: 2px;
+      top: 50%;
+      transform: translate(0, -50%);
+      background-color: $backgroundLight_day;
+      border-radius: 16px;
+      transition: left $transitionSettings, background-color $transitionSettings;
+    }
+    &_checked {
+      background-color: $colorMainGreen !important;
+      &::after {
+        left: calc(100% - 18px);
+      }
+    }
+    &_dark {
+      background-color: $colorFormDarkGray;
+    }
+  }
+
+  &__input_hidden {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+  }
+
+  &__label {
+    color: $textMainLight;
+    cursor: pointer;
+    font-size: $fontMediumSize !important;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                      supported by Chrome, Edge, Opera and Firefox */
+    &_light {
+      font-size: $fontMediumSize !important;
+      color: $textMainDark;
+      cursor: pointer;
+    }
+  }
+}
+@media (max-width: $tabletMaxWidth), (max-height: $tabletMaxHeight) {
+  .switcher {
+    &__label {
+      color: $textMainLight;
+      cursor: pointer;
+      font-size: $fontSizeSmall;
+      -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+      -khtml-user-select: none; /* Konqueror HTML */
+      -moz-user-select: none; /* Old versions of Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+      user-select: none; /* Non-prefixed version, currently
+                                        supported by Chrome, Edge, Opera and Firefox */
+      &_light {
+        color: $textMainDark;
+        font-size: 16px !important;
+      }
+      &_dark {
+        color: $textMainDark;
+      }
+    }
+  }
+}
+
+@media (max-width: $mobileMaxWidth) {
+  .switcher {
+    &__label {
+      font-size: $fontSmallSize !important;
+    }
+}
+}
+

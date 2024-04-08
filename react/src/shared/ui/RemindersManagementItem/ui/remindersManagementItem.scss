@@ -1,0 +1,58 @@
+@import "app/styles/shared.scss";
+
+.remindersManagementItem {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  align-items: flex-end;
+  grid-template-columns: 1fr 160px 100px 220px 60px 48px;
+  gap: $gap12;
+  padding: 16px 0;
+  font-size: $fontSizeSmall;
+
+  &:not(:first-child) {
+    border-top: $borderParams;
+  }
+
+  &__name {
+    display: flex;
+    flex-direction: column;
+    gap: $gap8;
+    & a {
+      font-weight: 600;
+      color: $textMainDark;
+    }
+    & p {
+      font-size: $fontSizeThin;
+      color: $textSecondaryGray;
+    }
+  }
+  &__btns {
+    display: flex;
+    justify-content: flex-end;
+    gap: 17px;
+    & svg {
+      color: $textSecondaryGray;
+      cursor: pointer;
+      transition: color $transitionSettings;
+      &:hover {
+        color: $mainColor_focus;
+      }
+    }
+  }
+  &__btn {
+    position: absolute;
+    right: 0;
+    bottom: -5px;
+  }
+  &__col {
+    &_text {
+      font-weight: 600;
+      max-width: 500px;
+    }
+    &_btns {
+      position: relative;
+
+    }
+  }
+}

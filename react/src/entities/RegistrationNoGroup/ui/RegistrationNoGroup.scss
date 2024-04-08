@@ -1,0 +1,85 @@
+@import 'app/styles/shared.scss';
+
+.no-group {
+  text-align: center;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%; /* 20px */
+  height: auto;
+  & a {
+    color: #54a323;
+    &:hover {
+      color: #4a992b;
+    }
+  }
+}
+
+.oops {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 100%; /* 24px */
+}
+
+.no-group-container {
+  border-radius: 26px;
+  background: var(--day-background-secondary, #FFF);
+  box-shadow: 0px 4px 11px 0px rgba(0, 0, 0, 0.10);
+  display: flex;
+  width: 600px;
+  padding: 24px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.final-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+}
+
+@media (max-width: $tabletMaxWidth), (max-height: $tabletMaxHeight) {
+
+  .no-group-container {
+    padding: 24px;
+  }
+
+  .oops {
+    font-size: 24px;
+  }
+  .no-group {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: $mobileMaxWidth), (max-height: $mobileMaxHeight) {
+  .no-group-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 8px;
+    & .btn-text__fork {
+      font-size: 14px;
+    }
+  }
+  .oops {
+    font-size: 20px;
+    text-align: center;
+  }
+  .no-group {
+    font-size: 16px;
+    text-align: center;
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+
+  
+}

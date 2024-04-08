@@ -1,0 +1,45 @@
+@import "../../mixins";
+
+@mixin _serviceIcon() {
+  fill: $colorFormLightGray;
+  height: $gapGrid;
+  transition: fill $transitionSettings;
+  width: $gapGrid;
+
+  &:hover {
+    fill: $colorMainGreenHover;
+  }
+}
+
+@mixin downloadIcon() {
+  @include _serviceIcon();
+}
+
+@mixin accessToggleIcon() {
+  @include _serviceIcon();
+
+  stroke: $colorFormLightGray;
+  transition: fill $transitionSettings, stroke $transitionSettings;
+
+  &:hover {
+    stroke: $colorMainGreenHover;
+  }
+
+  &_active {
+    fill: $colorMainGreen;
+    stroke: $colorMainGreen;
+  }
+}
+
+@mixin deleteItemIcon() {
+  @include _serviceIcon();
+
+  stroke: $colorWhite;
+  opacity: 0.75;
+  transition: fill $transitionSettings, opacity $transitionSettings;
+
+  &:hover {
+    fill: $colorInvalidRed;
+    opacity: 1;
+  }
+}

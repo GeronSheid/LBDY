@@ -1,0 +1,57 @@
+@import "../../_variables.scss";
+@import "../../_fonts.scss";
+
+.nav {
+  position: relative;
+  width: 100%;
+  min-height: calc($containerStandardHeight - 32px);
+  grid-column: 1 / 3;
+  align-self: start;
+
+  &__list {
+    position: absolute;
+    top: 16px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__link {
+    flex-shrink: 0;
+    width: 120%;
+    margin-left: -20%;
+    padding: 15px 32px;
+    font-size: $fontSizeMedium;
+    border-radius: 0 $borderRadius $borderRadius 0;
+    transition: color $transitionSettings, background-color $transitionSettings, font-weight $transitionSettings;
+    &:hover {
+      background-color: $colorMainGreenExtraHover;
+    }
+    & span {
+      display: block;
+      margin-left: 13%;
+    }
+    &_active {
+      background-color: $colorMainGreen;
+      @include textDemiBold($colorWhite);
+      &:hover {
+        background-color: $colorMainGreen;
+      }
+    }
+    
+  }
+}
+
+@media (max-width: $tabletMaxWidth), (max-height: $tabletMaxHeight) {
+  .nav {
+    min-height: $containerTabletHeight;
+
+    &__link {
+      padding: 11px 25px;
+      font-size: $fontSizeSmall;
+    }
+  }
+}
+

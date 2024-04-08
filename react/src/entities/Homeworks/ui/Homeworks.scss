@@ -1,0 +1,30 @@
+@import 'app/styles/shared.scss';
+
+.emptyList__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 70%;
+    color: $colorFormLightGray;
+    font-size: $fontMediumSize;
+}
+
+@media (max-width: $tabletMaxWidth), (max-height: $tabletMaxHeight) {
+    .emptyList__title {
+        font-size: $fontSizeSmall;
+    }
+}
+
+@media (max-width: $mobileMaxWidth), (max-height: $mobileMaxHeight) {
+    .emptyList__title {
+        border: 1px solid $borderDark;
+        border-radius: 26px;
+        width: 100%;
+        height: 100%;
+        &_noBorder {
+            font-size: $fontSizeSmall;
+            border: none;
+        }
+    }
+}

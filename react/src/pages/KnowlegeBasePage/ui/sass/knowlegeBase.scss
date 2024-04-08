@@ -1,0 +1,239 @@
+@import "../../../../app/styles/shared";
+@import "pages/MainPage/ui/sass/main.scss";
+
+.knowlegeBase {
+
+  &__deleteModal {
+    margin-bottom: 85px;
+  } 
+
+  &__notFound {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+
+    & > p {
+      color: $colorFormLightGray;
+      font-size: 20px;
+    }
+  }
+
+  &__row {
+    width: calc(100% - #{$gapGrid});
+    display: grid;
+    grid-template-columns: 1fr 70px 98px minmax(120px, 1fr) minmax(120px, 1fr) 100px 135px 84px;
+    gap: 0 $gap12;
+    font-size: $fontSmallSize;
+    line-height: 1;
+    align-items: start;
+  }
+
+  &__filters {
+    grid-column: 3/-1;
+  }
+  &__base-info {
+    grid-column: 1/-1;
+  }
+}
+
+.base-info {
+  height: calc(100vh - 320px - 24px - 24px - 24px);
+  overflow: hidden;
+  &__header {
+    display: flex;
+    flex-direction: column;
+    &-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    &-bottom {
+      display: flex;
+    }
+    &-controls {
+      display: flex;
+      align-items: center;
+      gap: $gapGrid;
+    }
+  }
+}
+
+.info-filters {
+  padding: 17px 0 21px 0;
+  border-top: 1px solid $colorMainGrayOpacity40;
+  border-bottom: 1px solid $colorMainGrayOpacity40;
+  &__item {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    color: $colorMainGray;
+  }
+}
+
+.plate {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 28px $gapGrid 20px $gapGrid;
+  background-color: $colorWhite;
+  border-radius: 26px;
+  box-shadow: 0px 4px 11px 0px rgba(0, 0, 0, 0.1);
+  height: 62vh;
+}
+
+.knowlegeBase-item {
+  width: calc(100% - #{$gapGrid});
+  display: grid;
+  align-items: start;
+  grid-template-columns: 1fr 70px 98px minmax(120px, 1fr) minmax(120px, 1fr) 100px 135px 84px;
+  gap: 0 $gap12;
+  padding: $gap16 0;
+  border-bottom: 1px solid $colorMainGrayOpacity40;
+
+  & div {
+    // width: fit-content;
+    font-size: $fontSmallSize;
+    text-wrap: wrap;
+  }
+  &__col_subject {
+    margin-left: 20px;
+  }
+
+  &__avatar {
+    & img {
+      width: $gapGrid;
+      height: $gapGrid;
+      border-radius: 50%;
+      background-color: $mainColor;
+    }
+  }
+
+  &__name {
+    display: flex;
+    flex-direction: column;
+    gap: $gap8;
+    & a {
+      font-size: $fontSmallSize;
+      font-weight: 600;
+    }
+    & p {
+      font-size: $fontThinSize;
+      color: $textSecondaryGray;
+    }
+  }
+
+  &__btns {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    margin-top: -4px;
+  }
+
+  &__icon {
+    color: $textSecondaryGray;
+    transition: color $transitionSettings;
+    &:hover {
+      color: $mainColor_focus;
+    }
+    &_active {
+      color: $mainColor_focus;
+      &:hover {
+        color: $mainColor_hover;
+      }
+    }
+  }
+}
+
+@media (max-width: $tabletMaxWidth), (max-height: $tabletMaxHeight) {
+  .base-info {
+    height: calc(100vh - 220px - 24px - 24px - 24px);
+  }
+
+  .knowlegeBase {
+    &__notFound {
+      & > p {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1050px) {
+  .knowlegeBase-item__col_subject.knowlegeBase-item__col {
+    margin-left: 0 !important;
+  }
+}
+
+@media (max-width: $mobileMaxWidth), (max-height: $mobileMaxHeight) {
+  .base-info {
+    height: 100%;
+  }
+  .plate {
+    padding: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+  .knowlegeBase {
+    &__notFound {
+      top: 40%;
+      & > p {
+        font-size: 16px;
+      }
+    }
+    &__mobile {
+      &-btns {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 0 $gapGrid 0;
+        padding: 0 8px;
+      }
+      &-header {
+        padding-bottom: 8px;
+      }
+    }
+    &__scrollbar {
+      height: calc(100dvh - 276px) !important;
+    }
+    &-item {
+      width: 100%;
+      grid-template-columns: 1fr;
+      font-size: $fontSizeThin;
+      gap: 8px;
+      padding: 16px 8px;
+    
+      & div {
+        // width: fit-content;
+        font-size: 14px;
+        text-wrap: wrap;
+      }
+
+      &__col {
+        display: grid;
+        grid-template-columns: 120px 1fr;
+        gap: 20px;
+        &_date {
+          grid-row: 2/3;
+          margin-bottom: 16px;
+          color: $textSecondaryGray;
+          font-size: 14px;
+        }
+      }
+      &__btns {
+        justify-content: flex-start;
+      }
+
+      &__name {
+        gap: 4px;
+        & a {
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+@import "../../../../app/styles/shared";
+@import "pages/MainPage/ui/sass/main.scss";
+
+@media (max-width: $tabletMaxWidth), (max-height: $tabletMaxHeight) {
+  .main-container {
+    // .contacts-page.main-container {
+    grid-template-rows: auto 1fr;
+
+    .nav {
+      min-height: $containerTabletHeight;
+    }
+    .nav__link {
+      font-size: $fontSizeSmall;
+    }
+  }
+}

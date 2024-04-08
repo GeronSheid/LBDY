@@ -1,0 +1,28 @@
+@import "../../../app/styles/_variables.scss";
+
+.mediaUnit {
+    &__wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-right: 8px;
+        &:not(:last-of-type) {
+            margin-bottom: $gapGrid;
+        }
+    }
+    &__name {
+        display: block;
+        color: $textMainDark;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 1; 
+        margin-bottom: $gap8;
+    }
+    &__description {
+        color:$textSecondaryDark;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1; 
+    }
+}

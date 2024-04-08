@@ -1,0 +1,327 @@
+@import "../../../../app/styles/shared";
+
+.projects {
+  @include container($gapGrid, 3, 7, $gapGrid, true, true, 0);
+  height: $containerStandardHeight;
+  // position: relative;
+  padding-right: 0;
+  overflow: hidden;
+
+  &__memberList {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #fff;
+  }
+
+  &__header {
+    align-items: flex-end;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: $gap32;
+    padding-right: $gapGrid;
+
+    &-right {
+      align-items: flex-end;
+      display: flex;
+
+      > :not(:last-child) {
+        margin-right: $gap8;
+      }
+    }
+  }
+
+  &__list {
+    height: 100%;
+  }
+
+  &__wrapper {
+    padding-bottom: $gap8;
+    padding-right: $gapGrid;
+    padding-left: 2px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: calc(#{$containerStandardHeight} - 3 * #{$gapGrid} - #{$gap32});
+  }
+
+  &__current,
+  &__archived {
+    width: calc(100% - 32px);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  &__grouped {
+    display: flex;
+  }
+
+  &__empty {
+    width: 100%;
+    color: $colorFormLightGray;
+    font-size: $fontMediumSize;
+    text-align: center;
+    transform: translateX(32px);
+  }
+
+  &-item {
+    display: flex;
+    flex-direction: column;
+    gap: $gap12;
+    width: 100%;
+    margin-bottom: 10px;
+
+    &:not(:last-child) {
+      margin-bottom: $gapGrid;
+    }
+
+    &_btn:hover &__progress-divider,
+    &_btn:focus &__progress-divider,
+    &_btn:hover &__progress-tasks,
+    &_btn:focus &__progress-tasks {
+      opacity: 1;
+    }
+
+    &_btn:hover &__name {
+      color: $colorMainGreenHover;
+    }
+
+    &_btn:focus &__name {
+      color: $colorMainGray;
+    }
+
+    &__name {
+      font-size: $fontMediumSize;
+      transition: color $transitionSettings;
+      text-align: left;
+    }
+
+    &__info {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      line-height: $fontThinSize;
+      width: 100%;
+
+      span {
+        color: $colorFormLightGray;
+        font-size: $fontThinSize;
+      }
+    }
+
+    &__progress {
+      align-items: center;
+      display: flex;
+      gap: $gap16;
+
+      &-divider {
+        fill: $colorMainGray;
+        opacity: 0;
+        transition: opacity $transitionSettings;
+      }
+
+      &-tasks {
+        opacity: 0;
+        transition: opacity $transitionSettings;
+      }
+    }
+
+    &__bar {
+      height: 10px;
+      border-radius: $borderRadius;
+      outline: 2px solid $colorMainGreen;
+      width: 100%;
+      margin-left: 2px;
+
+      &-inner {
+        height: 100%;
+        background-color: $colorMainGreen;
+        width: 69%;
+      }
+    }
+
+    &__usersBar {
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      margin-bottom: 10px;
+      column-gap: -10px;
+      flex-wrap: wrap;
+      padding-left: 15px;
+    }
+
+    &__user {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-left: -15px;
+      position: relative;
+      z-index: 1;
+
+      &:hover {
+        z-index: 100;
+      }
+    }
+
+    &__image {
+      position: relative;
+      display: block;
+      border: 2px solid #fff;
+      border-radius: 50%;
+    }
+
+    &__linkWrap {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    &__membersBtn {
+      order: 6;
+      text-align: start;
+      z-index: 100000000;
+    }
+  }
+
+  &-swiper {
+    height: 80%;
+    padding-right: $gapGrid !important;
+
+    .swiper-slide {
+      width: 100% !important;
+    }
+
+    .swiper-pagination-bullet {
+      &-active {
+        background-color: $borderDark;
+      }
+    }
+  }
+}
+
+.projectPage__doneLine {
+  background-color: #54a323;
+  height: 100%;
+  transition: width 500ms;
+}
+
+@media (max-width: $tabletMaxWidth), (max-height: $tabletMaxHeight) {
+  .projects {
+    height: $containerTabletHeight;
+
+    &__header {
+      align-items: center;
+      margin-bottom: $gapGrid;
+    }
+
+    &-item {
+      &__name {
+        font-size: 16px;
+      }
+
+      &_btn:hover &__progress-divider,
+      &_btn:focus &__progress-divider,
+      &_btn:hover &__progress-tasks,
+      &_btn:focus &__progress-tasks {
+        opacity: 0 !important;
+      }
+
+      &_btn:hover &__name {
+        color: $textMainDark !important;
+      }
+
+      &_btn:focus &__name {
+        color: $textMainDark !important;
+      }
+
+      &__user {
+        width: 32px;
+        height: 32px;
+      }
+    }
+  }
+}
+
+@media (max-width: $mobileMaxWidth), (max-height: $mobileMaxHeight) {
+  .projects {
+    @include container(0, 1, -1, $gapGrid, false, true, 0);
+    background-color: transparent;
+    box-shadow: none;
+    height: fit-content;
+    margin-bottom: $gap32;
+    border-radius: 0;
+
+    & .mobileTab {
+      margin-bottom: $gap16;
+    }
+
+    &-swiper {
+      height: fit-content;
+      padding-right: 0 !important;
+    }
+
+    &__header {
+      width: calc(100% - 16px);
+      margin: 0px 9px 16px 9px;
+      padding: 0;
+      & .legend {
+        margin: auto 0;
+      }
+    }
+
+    &__list {
+      height: 260px;
+    }
+
+    &-item {
+      width: calc(100%);
+      min-height: 150px;
+      margin-bottom: 40px;
+      padding: $gap16;
+      border-radius: $borderRadius;
+      border: solid 1px $borderDark;
+      &__name {
+        order: 1;
+        font-size: $fontSizeSmall;
+      }
+      &__date-range {
+        order: 2;
+        font-size: $fontSizeThin;
+        color: $textSecondaryDark;
+      }
+      &__info {
+        order: 5;
+      }
+
+      &__progress {
+        width: 100%;
+        justify-content: space-between;
+        font-size: $fontSizeThin;
+        color: $textSecondaryDark;
+        &-tasks {
+          opacity: 1;
+        }
+      }
+      &__usersBar {
+        order: 3;
+        margin-top: 0;
+      }
+    }
+    &__current {
+      width: 100%;
+      height: calc(100% - 240px);
+    }
+    &__empty {
+      transform: none;
+      font-size: 16px;
+    }
+  }
+  .projectPage__doneWrapper {
+    order: 4;
+  }
+}

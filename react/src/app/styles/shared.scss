@@ -1,0 +1,225 @@
+@import "normalize";
+@import "resets";
+@import "./_mixins.scss";
+@import "./modules/btn/btn.scss";
+@import "./modules/form/form.scss";
+@import "./modules/icon/icon.scss";
+@import "./modules/input/input.scss";
+@import "./modules/nav/nav.scss";
+@import "modules/select/select.scss";
+@import "modalWindow";
+
+$layoutGap: $gap24;
+
+#root {
+  max-width: 100dvw;
+  max-height: 100dvh;
+}
+
+html {
+  max-width: 100dvw;
+  height: 100dvh;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+body {
+  font-family: "AvenirNext", Verdana, sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1;
+  color: $textMainDark;
+  background-color: $colorBackground;
+  overflow: hidden;
+  min-width: 375px;
+}
+
+.main-container {
+  width: calc(100% - 2 * $gap32);
+  height: calc(100vh - $gap24);
+  padding-bottom: 24px;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  justify-content: center;
+  gap: $layoutGap;
+  margin: $gap24 auto 0 auto;
+
+  &_auth {
+    align-content: center;
+  }
+
+  &_modal::before {
+    background-color: rgba($color: #000, $alpha: 0.5);
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+  }
+}
+
+.field {
+  position: relative;
+  width: 100%;
+
+  &_invalid label {
+    color: $colorInvalidRed !important;
+    &:hover {
+      color: $colorInvalidRed !important;
+    }
+  }
+
+  &_invalid .input__simple-input_dark {
+    outline-color: $colorInvalidRed !important;
+  }
+  &_invalid .input__textarea_dark {
+    outline-color: $colorInvalidRed !important;
+    &::placeholder {
+      color: rgba(235, 0, 27, 0.5) !important;
+    }
+  }
+
+  &_invalid .input__simple-input_light {
+    outline-color: $colorInvalidRed !important;
+    &::placeholder {
+      color: rgba(235, 0, 27, 0.5) !important;
+    }
+  }
+  &_invalid .input__textarea_light {
+    outline-color: $colorInvalidRed !important;
+    &::placeholder {
+      color: rgba(235, 0, 27, 0.5) !important;
+    }
+  }
+
+  &-wrapper & {
+    margin-right: 0 !important;
+  }
+
+  &__label {
+    position: absolute;
+    top: 100%;
+    left: $gapGrid;
+    color: $colorFormLightGray;
+    font-size: 0.5em;
+    transform: translateY(50%);
+  }
+}
+
+.simplebar-scrollbar::before {
+  background-color: $colorMainGray;
+  border-radius: calc($borderRadius / 2);
+  height: $scrollbarHeight;
+  opacity: 0.5;
+  width: 4px;
+  margin: 0;
+}
+
+.legend {
+  font-size: $fontLargeSize;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: $colorWhite;
+  -webkit-box-shadow: 0 0 0px 40rem $colorMainGray inset;
+}
+
+.react-tooltip {
+  padding: 8px 12px !important;
+  font-size: 14px !important;
+  color: $textMainLight !important;
+  background-color: $tooltipBackground !important;
+  border-radius: 26px !important;
+  z-index: 10000 !important;
+
+  &-arrow {
+    left: min(25%, 15px) !important;
+  }
+}
+
+.react-datepicker-wrapper {
+  width: 100%;
+}
+.react-datepicker-popper .react-datepicker__triangle {
+  display: none;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: $textMainLight;
+}
+
+.registration__scroll-wrap {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: $tabletMaxWidth), (max-height: $tabletMaxHeight) {
+  .legend {
+    font-size: $fontMediumSize;
+  }
+}
+
+@media (max-width: $mobileMaxWidth), (max-height: $mobileMaxHeight) {
+  body {
+    background-color: $backgroundLight_day;
+    overflow-y: auto;
+  }
+  #root {
+    max-width: none;
+    max-height: none;
+    height: 100%;
+  }
+  .main-container {
+    max-width: 100dvw;
+    width: 100%;
+    padding: $gap8;
+    margin: 0;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    min-width: 375px;
+    gap: 0;
+    margin-top: 0;
+    padding-bottom: 64px;
+    height: 100%;
+    min-height: 100dvh;
+
+    &__modal-wrap {
+      width: 100%;
+      height: 100%;
+      grid-column: 1/-1;
+      z-index: 10000;
+    }
+  }
+}

@@ -1,0 +1,82 @@
+@import "./_fonts.scss";
+@import "./_variables.scss";
+
+
+@mixin textRegular($textColor: $colorBlack) {
+  color: $textColor;
+  font-family: "AvenirNext", Verdana, sans-serif;
+  font-weight: 400;
+  line-height: 100%;
+}
+
+@mixin textMedium($textColor: $colorBlack) {
+  color: $textColor;
+  font-family: "AvenirNext", Verdana, sans-serif;
+  font-weight: 500;
+  line-height: 100%;
+}
+
+@mixin textDemiBold($textColor: $colorBlack) {
+  color: $textColor;
+  font-family: "AvenirNext", Verdana, sans-serif;
+  font-weight: 600;
+  line-height: 100%;
+}
+
+@mixin container(
+  $padding,
+  $gridColumnStart,
+  $gridColumnEnd,
+  $legendGapBottom,
+  $shadow,
+  $lightStyle,
+  $fieldGapBottom
+) {
+  border-radius: $borderRadius;
+  padding: $padding;
+  grid-column-start: $gridColumnStart;
+  grid-column-end: $gridColumnEnd;
+  width: 100%;
+
+  @if $lightStyle {
+    background-color: $backgroundLight_day;
+  } @else {
+    background-color: $backgroundDark_day;
+  }
+
+  @if $shadow {
+    box-shadow: $moduleBoxShadow;
+  }
+
+  .legend {
+    margin-bottom: $legendGapBottom;
+    align-self: flex-start;
+    @if $lightStyle {
+      @include textDemiBold($textMainDark);
+    } @else {
+      @include textDemiBold($textMainLight);
+    }
+    &_thin {
+      font-size: 20px;
+      line-height: 1;
+      @include textRegular($textMainDark);
+    }
+    &_light {      
+      @if $lightStyle {
+        @include textDemiBold($textMainLight);
+      } @else {
+        @include textDemiBold($textMainDark);
+      }
+    }
+  }
+}
+
+@mixin modal() {
+  left: 50%;
+  max-height: fit-content;
+  max-width: $modalMaxWidth;
+  position: fixed;
+  top: 20px;
+  transform: translateX(-50%);
+  z-index: 10000;
+}

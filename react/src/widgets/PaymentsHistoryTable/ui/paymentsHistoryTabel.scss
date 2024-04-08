@@ -1,0 +1,31 @@
+@import 'app/styles/shared.scss';
+
+.paymentsHistoryTable {
+  &__header {
+    padding: 16px 0 21px 0;
+    border-top: $borderParams;
+    border-bottom: $borderParams;
+  }
+
+  &__list {
+    display: grid;
+    align-items: start;
+    justify-items: start;
+    grid-template-columns: repeat(4, 1fr);
+    color: $textSecondaryGray;
+    font-size: 16px;
+  }
+
+  &__content {
+    height: 106px;
+    margin-bottom: 16px;
+  }
+
+  &__row {
+    padding: 16px 0;
+    border-bottom: $borderParams;
+    .paymentsHistoryTable__list {
+      color: $textMainDark;
+    }
+  }
+}

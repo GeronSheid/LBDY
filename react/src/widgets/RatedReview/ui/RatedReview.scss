@@ -1,0 +1,118 @@
+@import "app/styles/shared";
+@import "app/styles/_variables";
+@import "app/styles/mixins";
+
+.rated-review {
+  @include container($gapGrid, 7, 11, $gap40, false, false, $gap16);
+  display: flex;
+  flex-direction: column;
+
+  height: $containerStandardHeight;
+
+  background-color: $colorWhite;
+  box-shadow: 0px 4px 11px 0px rgba(0, 0, 0, 0.1);
+
+  justify-content: space-between;
+  align-items: flex-end;
+
+  &__header {
+    @include textDemiBold;
+    width: 100%;
+    margin-left: $gapGrid;
+    margin-bottom: $gap32;
+  }
+
+  &__textarea {
+    @include textareaInputLight;
+    min-height: 100%;
+    padding: $gapGrid;
+    overflow: hidden;
+    textarea::placeholder {
+      color: $colorMainGrayOpacity40;
+    }
+  }
+
+  .btn-shape__filled {
+    max-width: 247px;
+    height: 68px;
+  }
+}
+@media (max-width: $tabletMaxWidth), (max-height: $tabletMaxHeight) {
+  .rated-review {
+    height: $containerTabletHeight;
+    &__header {
+      font-size: $fontSizeMedium;
+      margin-bottom: $gap24;
+    }
+    &__textarea {
+      max-height: 68px;
+      padding-top: $gap16;
+      padding-right: $gap24;
+      font-size: $fontSizeThin;
+    }
+    .btn-shape__filled {
+      max-width: 211px;
+      height: 44px;
+      font-size: $fontSizeSmall;
+      padding: $gap14;
+    }
+  }
+}
+
+@media (max-width: $mobileMaxWidth), (max-height: $mobileMaxHeight) {
+  .rated-review {
+    position: absolute;
+    height: 100dvh;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 0%;
+    max-height: none;
+    width: 100%;
+    padding: 16px 0;
+
+    &__header {
+      font-size: 17px;
+      margin-bottom: $gap16;
+    }
+    .modalWindow__text-btn {
+      @include text-btn(
+        $textSecondaryDark,
+        $textSecondaryDark_hover,
+        $fontLargeSize,
+        500
+      );
+      font-size: 16px;
+    }
+    &__text-btn {
+      @include text-btn(
+        $textSecondaryDark,
+        $textSecondaryDark_hover,
+        $fontLargeSize,
+        500
+      );
+      font-size: 16px;
+    }
+
+    &__textarea {
+      font-size: $fontSizeSmall;
+      height: 198px;
+      max-height: none;
+      min-height: none;
+      margin: 0 auto;
+      width: calc(100% - 32px);
+    }
+
+    .btn-shape__filled {
+      justify-self: center;
+      width: calc(100% - 32px);
+      max-width: 600px;
+      height: 48px;
+      font-size: $fontSizeSmall;
+      padding: $gap16;
+      margin-top: auto;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}

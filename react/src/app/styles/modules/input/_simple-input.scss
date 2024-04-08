@@ -1,0 +1,76 @@
+@import "../../mixins";
+
+@mixin _simpleInput(
+  $color,
+  $outlineColor,
+  $placeholderColor,
+  $outlineFocus,
+  $outlineFocusPlaceholderColor,
+  $hoverColor
+) {
+  background-color: transparent;
+  border: none;
+  border-radius: $borderRadius;
+  display: block;
+  font-size: 20px;
+  outline: 1px solid transparent;
+  padding: $gapGrid;
+  // padding-right: calc(#{$gapGrid} * 3);
+  position: relative;
+  transition: outline-color $transitionSettings,
+  outline-width $transitionSettings;
+  width: 100%;
+  max-height: 68px;
+  color: $color;
+  outline-color: $outlineColor;
+
+  &::placeholder {
+    color: $placeholderColor;
+    transition: color $transitionSettings;
+  }
+
+  &:focus {
+    outline-color: $outlineFocus;
+    outline-width: 2px;
+
+    &:hover {
+      outline-color: $outlineFocus;
+      outline-width: 2px;
+
+      &::placeholder {
+        color: $outlineFocusPlaceholderColor;
+      }
+    }
+  }
+
+  &:hover {
+    outline-color: $hoverColor;
+
+    &::placeholder {
+      color: $hoverColor;
+    }
+  }
+}
+
+@mixin simpleInputLight {
+  @include _simpleInput(
+    $colorBlack,
+    $colorFormLightGray,
+    $textSecondaryDark,
+    $colorMainGray,
+    $colorFormLightGray,
+    $colorMainGreenHover
+  );
+}
+
+@mixin simpleInputDark {
+  @include _simpleInput(
+    $colorWhite,
+    $colorWhiteOpacity70,
+    $colorWhiteOpacity50,
+    $colorWhite,
+    $colorWhiteOpacity70,
+    $colorWhite
+  );
+}
+

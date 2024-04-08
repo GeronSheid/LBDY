@@ -1,0 +1,397 @@
+@import "app/styles/shared.scss";
+
+.schedule {
+  $scheduleFiltersHeight: 164px;
+  grid-column: 1 / -1;
+  height: calc(100vh - #{$containerStandardHeight} - #{$gapGrid} * 5);
+  width: 100%;
+
+  & legend {
+    margin-bottom: $gap24 !important;
+  }
+
+  &-filters {
+    @include container($gapGrid $gap32, 1, -1, $gap40, true, false, 0);
+
+    margin-bottom: 8px;
+    height: fit-content;
+    width: 100%;
+    position: relative;
+
+    .field-wrapper {
+      justify-content: space-between;
+    }
+
+    .choices[data-type*="select-one"] .choices__inner {
+      background-position-x: calc(100% - $gap16);
+    }
+
+    &__btns {
+      position: absolute;
+      top: $gapGrid;
+      right: $gap32;
+    }
+  }
+
+  &__days {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: $gap8;
+    overflow-y: hidden;
+
+    &_mobile {
+      height: calc(100dvh - 230px);
+      display: flex;
+      flex-direction: column;
+      gap: $gap8;
+      padding: $gap8 0;
+      overflow-y: scroll;
+
+      &::-webkit-scrollbar {
+        width: 0;
+      }
+    }
+  }
+
+  &-day {
+    @include container($gap16 0, 1, -1, 0, true, false, 0);
+    color: $colorWhite;
+    font-size: $fontSmallSize;
+    overflow: hidden;
+    height: calc(
+      100vh - #{$containerStandardHeight} - #{$gapGrid} * 5 - #{$scheduleFiltersHeight} -
+        18px
+    );
+    max-height: 45vh;
+
+    &_active {
+      background-color: #4a992b;
+    }
+
+    &_active &__lesson_btn::before {
+      background-color: $colorWhiteOpacity20;
+    }
+
+    &__header {
+      align-items: flex-end;
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      padding: $gap16;
+      padding-top: 0;
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: calc(100% - $gap32);
+        height: 1px;
+        background-color: $colorWhiteOpacity50;
+        top: 100%;
+      }
+    }
+
+    &__heading {
+      display: flex;
+      align-items: flex-end;
+      gap: $gapGrid;
+    }
+
+    &__content {
+      display: flex;
+      align-items: start;
+      padding: 10px 16px 90px 16px;
+    }
+
+    &__lessons {
+      height: calc(100% - #{$gap40});
+      padding: 10px 0 0 8px;
+
+      .simplebar-scrollbar::before {
+        background-color: transparent;
+      }
+    }
+
+    &__date {
+      @include textDemiBold($colorWhite);
+      font-size: $fontMediumSize;
+
+      &_big {
+        @include textDemiBold($colorMainGreen);
+        font-size: 48px;
+      }
+    }
+
+    &__lesson {
+      position: relative;
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: start;
+      padding: 8px 6px 8px 0;
+      text-align: left;
+      z-index: 1;
+      cursor: pointer;
+
+      &-content {
+        width: 100%;
+      }
+
+      &_big {
+        width: 300px;
+        min-height: 212px;
+
+        .schedule-day__lesson-number {
+          font-size: $gapGrid;
+          line-height: 1;
+          z-index: 100;
+        }
+
+        .schedule-day__lesson-name {
+          display: inline-block;
+          width: 80%;
+          font-size: $gapGrid;
+          line-height: 1;
+          z-index: 100;
+        }
+
+        &::before {
+          width: 100% !important;
+          background: $colorMainGreenExtraHover
+            url("shared/assets/img/white-arrow-hover-right.png") no-repeat right
+            10px !important;
+          background-position-x: calc(100% - $gap8) !important;
+        }
+
+        &:not(:last-child) {
+          margin-right: $gapGrid;
+        }
+      }
+
+      &_active {
+        width: 380px;
+        border-radius: 10px;
+        background-color: $colorMainGreen;
+      }
+
+      &_offset {
+        display: block;
+        margin-left: 15px;
+      }
+
+      &_btn::before {
+        content: "";
+        position: absolute;
+
+        top: 0;
+        bottom: 0;
+        left: 0px;
+        right: 0px;
+        width: 95%;
+        background: $colorMainGreenExtraHover
+          url("shared/assets/img/white-arrow-hover-right.png") no-repeat right
+          center;
+        background-position-x: calc(100% - $gap8);
+        border-radius: 10px;
+        opacity: 0;
+        z-index: 50;
+        transition: opacity $transitionSettings;
+      }
+
+      &_btn:hover::before {
+        position: absolute;
+        opacity: 1;
+        z-index: 50;
+      }
+
+      &-number {
+        color: $colorWhite;
+        margin-left: 5px;
+        margin-right: $gap8;
+        line-height: 1em;
+        z-index: 100;
+      }
+
+      &-header {
+        display: flex;
+        align-items: flex-start;
+        gap: $gap16;
+      }
+
+      &-content {
+        display: flex;
+        flex-direction: column;
+        gap: $gap16;
+        z-index: 100;
+      }
+
+      &-info {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        font-size: $fontMediumSize;
+        line-height: 1;
+      }
+
+      &-name,
+      &-empty {
+        @include textDemiBold($colorWhite);
+        z-index: 1;
+        flex-shrink: 1;
+        max-width: 180px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        // line-clamp: 1;
+      }
+    }
+
+    &-mobile {
+      height: calc(100dvh - 42px - 64px - 64px - 34px - 16px);
+      padding: 8px 0;
+      display: flex;
+      flex-direction: column;
+      gap: $gap8;
+      overflow-y: scroll;
+
+      &::-webkit-scrollbar {
+        width: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: $tabletMaxWidth), (max-height: $tabletMaxHeight) {
+  .schedule {
+    $scheduleFiltersHeight: 196px;
+    height: calc(100vh - #{$containerTabletHeight} - #{$gapGrid} * 5);
+
+    & .field {
+      margin-bottom: 0 !important;
+    }
+
+    & legend {
+      margin-bottom: $gap16 !important;
+    }
+    .lessonModal legend {
+      margin-bottom: 0 !important;
+    }
+
+    &-filters {
+      padding: $gapGrid;
+    }
+
+    &-day {
+      font-size: $fontSmallSize;
+      height: calc(100vh - 470px);
+
+      &__date {
+        font-size: $fontSizeSmall;
+      }
+
+      &__lesson {
+        &-name {
+          display: block;
+          text-wrap: nowrap;
+          text-overflow: ellipsis;
+          max-width: 100px;
+          font-size: $fontSizeSmall;
+        }
+      }
+    }
+  }
+
+  
+}
+
+@media (max-width: $mobileMaxWidth), (max-height: $mobileMaxHeight) {
+  .schedule {
+    $scheduleFiltersHeight: 164px;
+    &-filters {
+      @include container(18px 16px, 1, -1, $gap40, true, true, 0);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      top: 30dvh;
+      height: 100%;
+      z-index: 10000;
+      border-radius: $borderRadius $borderRadius 0 0;
+
+      & .field {
+        &:not(:last-child) {
+          margin-bottom: 0;
+        }
+      }
+      & .field-wrapper {
+        grid-template-columns: 1fr;
+        gap: $gap16;
+      }
+
+      &__mobile-header {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 34px;
+
+        & > button {
+          font-size: 18px;
+          color: $textSecondaryDark;
+        }
+
+        & .legend {
+          font-size: 20px;
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &-day {
+      flex: 1 0 fit-content;
+      height: 100%;
+      overflow: hidden;
+
+      &__lessons {
+        height: 100%;
+      }
+
+      &__lesson-content {
+        flex-direction: row;
+        justify-content: space-between;
+        padding-right: 10px;
+      }
+    }
+    &-filters {
+      .field:nth-child(4) {
+        .choices__list--dropdown,
+        .choices__list[aria-expanded] {
+          &:last-of-type {
+            top: auto;
+            bottom: 100%;
+          }
+        }
+      }
+    }
+  }
+  .schedule-day__lesson {
+    &_btn::before {
+      width: 99%;
+    }
+  }
+}
+
+@media (max-width: 1700px) {
+  .schedule-day__lesson {
+    &-name {
+      text-wrap: wrap;
+      overflow: visible;
+      max-width: 100%;
+    }
+    &_btn::before {
+      background-image: none;
+    }
+  }
+}

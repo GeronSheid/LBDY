@@ -1,0 +1,465 @@
+@import "app/styles/shared.scss";
+
+.profilePage {
+  margin: $gap32;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__upperPart {
+    height: $containerStandardHeight;
+    margin-bottom: $gap24;
+    width: 100%;
+    display: flex;
+    gap: 17px;
+    align-items: center;
+  }
+
+  &__sidebarWrap {
+    width: 250px;
+  }
+
+  &__userCard {
+    grid-column: 3/-1;
+    width: 100%;
+    height: $containerStandardHeight;
+    display: flex;
+    padding: $gap24;
+    border-radius: $borderRadius;
+    background: $colorWhite;
+    box-shadow: 0px 4px 11px 0px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+
+  &__avatar {
+    position: relative;
+    width: 144px;
+    height: 144px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: $gap32;
+
+    &-change {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.8);
+      opacity: 0;
+      transition: opacity $transitionSettings;
+
+      & > svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    &:hover &-change {
+      opacity: 1;
+    }
+    &:focus &-change {
+      opacity: 1;
+    }
+  }
+
+  &__userInfoWrapper {
+    color: $colorBlack;
+    font-size: $fontLargeSize;
+    font-style: normal;
+    font-weight: 600;
+    display: flex;
+    gap: $gap16;
+    margin-bottom: $gap32;
+    height: 1em;
+  }
+
+  &__patchButton {
+    color: $textSecondaryGray;
+    transition: color $transitionSettings;
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: #57a637;
+      }
+    }
+  }
+
+  &__infoItemsWrapp {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: $gap16;
+  }
+
+  &__infoItem {
+    display: flex;
+    gap: $gap20;
+    align-items: center;
+  }
+
+  &__infoType {
+    width: 100px;
+    color: rgba(0, 0, 0, 0.4);
+    font-size: $fontSizeMedium;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+  }
+
+  &__infoContent {
+    color: $colorBlack;
+    font-size: $fontSizeMedium;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+  }
+
+  &__groupList {
+    font-size: $fontSizeMedium;
+    position: absolute;
+    bottom: $gap24;
+  }
+
+  &__ruleButton {
+    cursor: pointer;
+    position: absolute;
+    right: $gap24;
+  }
+
+  &__ruleBar {
+    width: 0;
+  }
+
+  &__ruleBar-open {
+    position: absolute;
+    background-color: $colorMainGray;
+    border-radius: 26px 0px 26px 26px;
+    padding: $gap24;
+    top: $gap32;
+    right: 0;
+    text-wrap: nowrap;
+  }
+
+  &__ruleButtonIn {
+    color: $colorWhite;
+    font-size: $fontSizeSmall;
+    font-weight: 600;
+    display: block;
+    opacity: 0.75;
+    transition: opacity 0.15s ease-in-out;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: $gap24;
+    }
+  }
+
+  .icon__spinner {
+    fill: $colorBlack;
+  }
+}
+
+@media (max-width: $tabletMaxWidth), (max-height: $tabletMaxHeight) {
+    .profilePage {
+
+        &__userName {
+            font-size: $fontSizeMedium;
+            margin-bottom: $gap16;
+        }
+
+        &__infoItemsWrapp {
+            gap: $gap4;
+            margin-bottom: $gap16;
+        }
+
+        &__infoType {
+            font-size: $fontSizeSmall;
+        }
+
+        &__infoContent {
+            font-size: $fontSizeSmall;
+        }
+
+        &__userCard {
+            height: $containerTabletHeight;
+        }
+
+        &__groupList {
+            font-size: $fontSizeSmall;
+        }
+    }
+
+}
+
+.profilePageMobile {
+    &__container {
+        grid-column: 1/-1;
+        padding: $gap8;
+        display: flex;
+        flex-direction: column;
+    }
+    &__userCard {
+        height: 280px;
+    }
+
+    &__upperRow {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: $gap32;
+    }
+
+    &__title {
+        color: $colorBlack;
+        font-size: 34px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: 41px;
+        letter-spacing: 0.374px;
+        margin-right: auto;
+    }
+
+    &__avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    &__userName {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: $gap16;
+        color: $colorBlack;
+        font-size: $fontSizeMedium;
+        font-style: normal;
+        font-weight: 600;
+    }
+
+    &__infoItemsWrapp {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: $gap16;
+        max-width: 700px;
+    }
+
+    &__infoItem {
+        display: flex;
+    }
+
+    &__infoType {
+      font-size: $fontSizeSmall;
+    }
+
+    &__infoContent {
+      font-size: $fontSizeSmall;
+    }
+
+    &__userCard {
+      height: $containerTabletHeight;
+    }
+
+    &__groupList {
+      font-size: $fontSizeSmall !important;
+    }
+  }
+
+.profilePageMobile {
+ 
+  &__userCard {
+    width: 100%;
+    margin-bottom: $gap32;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  &__upperRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 $gap16 $gap32 $gap16;
+  }
+
+  &__userInfo {
+    padding: 0 $gap8;
+    margin-bottom: $gap32;
+  }
+
+  &__title {
+    color: $colorBlack;
+    font-size: 34px;
+    font-weight: 900;
+    line-height: 41px;
+    letter-spacing: 0.374px;
+    margin-right: auto;
+  }
+
+  &__avatar {
+    border-radius: 50%;
+    margin-right: $gap24;
+    height: 40px;
+    width: 40px;
+  }
+
+  &__userWrapper {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  &__userInfoWrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: $gap24;
+    height: fit-content;
+  }
+
+  &__userName {
+    font-size: $fontSizeMedium;
+    font-style: normal;
+    font-weight: 600;
+    width: fit-content;
+    margin-right: $gap8;
+  }
+
+  &__infoItemsWrapp {
+    display: flex;
+    flex-direction: column;
+    gap: $gap8;
+    margin-bottom: $gap24;
+  }
+
+  &__infoItem {
+    display: flex;
+  }
+
+  &__infoType {
+    font-size: $fontThinSize;
+    width: 68px;
+    margin-right: $gap32;
+  }
+
+  &__infoContent {
+    font-size: 14px;
+    color: $colorBlack;
+    font-weight: 400;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  &__groupList {
+    display: block;
+    color: $colorMainGreen;
+    font-size: $fontThinSize !important;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%;
+  }
+  &__button-container {
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      gap: $gap16; 
+    }
+
+  &__mobile-button {
+    font-size: $fontThinSize;
+    font-weight: 600;
+    color: $colorBlack; 
+    height: 48px;
+    width: calc(100% - 16px); 
+    max-width: none; 
+    background-color: $colorWhite; 
+    border: 1px solid  $colorBlack; 
+    border-radius: $borderRadius; 
+    transition: border 0.15s ease-in-out;
+  }  
+}
+
+.remindersMobileModal {
+  &-enter {
+    transform: translateX(-105%);
+  }
+
+  &-enter-active {
+    transform: translateX(0);
+    transition: transform 300ms ease-in;
+  }
+
+  &-exit {
+    transform: translateX(0);
+  }
+
+  &-exit-active {
+    transform: translateX(-100%);
+    transition: transform 300ms ease-in;
+  }
+}
+
+.paymentMobileModal, .mobile-contacts, .feedback, .rated-review {
+  &-enter {
+    transform: translateX(-105%);
+  }
+
+  &-enter-active {
+    transform: translateX(0);
+    transition: transform 300ms ease-in;
+  }
+
+  &-exit {
+    transform: translateX(0);
+  }
+
+  &-exit-active {
+    transform: translateX(-100%);
+    transition: transform 300ms ease-in;
+  }
+}
+.paymentMobileHistory {
+  &-enter {
+    transform: translateX(-105%);
+  }
+
+  &-enter-active {
+    transform: translateX(0);
+    transition: transform 300ms ease-in;
+  }
+
+  &-exit {
+    transform: translateX(0);
+  }
+
+  &-exit-active {
+    transform: translateX(-100%);
+    transition: transform 300ms ease-in;
+  }
+}
+.deleteMobileModal {
+  &-enter {
+    opacity: 0;
+  }
+
+  &-enter-active {
+    opacity: 1;
+    transition: opacity 300ms ease-in;
+  }
+
+  &-exit {
+    opacity: 1;
+  }
+
+  &-exit-active {
+    opacity: 0;
+    transition: opacity 300ms ease-in;
+  }
+}

@@ -1,0 +1,171 @@
+@import "app/styles/shared.scss";
+
+.login {
+  &__wrapper {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: calc($gap32 - $gapGrid);
+    grid-column: span 10;
+    height: 100%;
+  }
+}
+
+.container {
+  @include container($gapGrid, 4, 8, $gap16, true, true, $gapGrid);
+  width: 600px;
+  margin: 0 auto;
+  // &_reg {
+  //   min-height: 600px;
+  // }
+  // &_auth {
+  //   min-height: 390px;
+  // }
+
+  #login-form {
+    height: 344px;
+    justify-content: flex-start;
+    & .icon {
+      &__password-control {
+        fill: $borderDark;
+      }
+    }
+  }
+
+  #code-to-reset-form {
+    height: fit-content;
+    & .btn-shape__filled {
+      margin-top: $gap32;
+    }
+  }
+
+  #registration-form {
+    height: 100%;
+    & .icon {
+      &__password-control {
+        fill: $borderDark;
+      }
+    }
+  }
+
+  & .form__wrapper {
+    gap: 40px;
+  }
+
+  & .form__fieldset {
+    margin-bottom: 24px;
+  }
+
+  & .btn-text__fork {
+    margin-bottom: auto;
+  }
+}
+
+.form {
+  //&__fieldset {
+  //  margin-bottom: $gapGrid;
+  //}
+
+  &__descr {
+    font-size: $fontMediumSize;
+    margin-bottom: $gapGrid;
+  }
+
+  &__link {
+    color: $colorMainGreen;
+    transition: color $transitionSettings;
+
+    &:hover {
+      color: $colorMainGreenHover;
+    }
+
+    &:focus,
+    &:active {
+      color: $colorMainGreenFocus;
+    }
+  }
+}
+
+.field {
+  &__password {
+    position: relative;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus .field__input {
+      outline-color: $colorBlack;
+    }
+
+    &:hover .field__input::placeholder {
+      color: $colorFormLightGray;
+    }
+  }
+
+  &_invalid {
+    outline-color: rgba(235, 0, 27, 0.702);
+  }
+
+  &:not(:last-child) {
+    margin-bottom: $gapGrid;
+  }
+}
+
+.input {
+  &__checkbox {
+    display: flex;
+    align-items: center;
+    gap: $gap8;
+    color: $textMainLight;
+    &:not(:last-child) {
+      margin-bottom: $gap32;
+    }
+
+    &-descr {
+      @include textMedium($colorMainGray);
+
+      font-size: $fontSmallSize;
+      transition: color $transitionSettings;
+
+      &:hover {
+        color: $colorMainGreenHover;
+      }
+    }
+  }
+}
+
+#registration-form-step-3 .field:nth-last-child(4) {
+  margin-bottom: calc(#{$gapGrid} * 2);
+}
+
+#swapGroupMethod {
+  display: none;
+  margin-bottom: $gapGrid !important;
+}
+
+#inputGroupField {
+  display: none;
+}
+
+@media (max-width: $tabletMaxWidth), (max-height: $tabletMaxHeight) {
+  .container {
+    width: 500px;
+  }
+  .form__descr {
+    font-size: $fontSmallSize;
+  }
+  .input__checkbox-descr {
+    font-size: $fontSizeThin;
+  }
+  .input__checkbox {
+    &:not(:last-child) {
+      margin-bottom: 18px;
+    }
+  }
+  #registration-form-step-3 .field:nth-last-child(4) {
+    margin-bottom: 32px;
+  }
+}
+
+

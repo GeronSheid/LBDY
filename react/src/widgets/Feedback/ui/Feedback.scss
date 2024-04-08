@@ -1,0 +1,134 @@
+@import 'app/styles/shared';
+@import 'app/styles/_variables';
+@import "app/styles/mixins";
+
+.feedback {
+	@include container($gap24, 1, 11, $gap40, false, false, $gap16);
+
+	display: grid;
+	overflow: auto;
+
+	height: 62vh;
+	
+	background-color: $colorWhite;
+	box-shadow: 0px 4px 11px 0px rgba(0, 0, 0, 0.1);
+	
+	grid-template-rows: min-content min-content auto min-content;
+
+	&__header {
+		@include textDemiBold;
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: $gap16;
+	}
+
+	&__text {
+		overflow: hidden;
+
+		text-overflow: ellipsis;
+		word-wrap: break-word;
+
+		color: var(--day-text-primary, $colorBlack);
+		color: $colorMainGrayOpacity40;
+		font-size: $fontSizeMedium;
+		a {
+			&:hover {
+				opacity: 0.8;
+			}
+		}
+	}
+
+	.btn-shape__filled {
+		max-width: 247px;
+		height: 68px;
+		justify-self: end;
+	}
+	&__wrapper {
+		margin-bottom: $gap32;		
+	}
+	&__textarea {
+		@include textareaInputLight;
+		min-height: 100%;
+		padding: $gap24;
+		textarea::placeholder {
+			color: $colorMainGrayOpacity40;
+		}
+	}	
+}
+@media (max-width: $tabletMaxWidth), (max-height: $tabletMaxHeight) {
+	.feedback {
+		height: calc(100dvh - $gap24 - 270px);	
+		&__header {
+			font-size:$fontSizeMedium;
+			margin-bottom: $gap16;
+		}
+		&__text {
+			font-size:$fontSizeSmall;
+		}
+		&__wrapper {
+			margin-bottom: 27px;		
+		}		
+		&__textarea {
+			font-size: $fontSizeThin;
+		}	
+		.btn-shape__filled {
+			@include filledButton();
+			max-width: 211px;
+			height: 44px;
+			font-size:$fontSizeSmall;
+			padding: $gap14;
+		}				
+	}
+}	
+
+@media (max-width: $mobileMaxWidth), (max-height: $mobileMaxHeight) {
+	.feedback {
+		position: absolute;
+		height: 100dvh;
+		top: 0;
+		bottom: 0;
+		left: 0;		
+		border-radius: 0%;
+		padding: $gap16 0;
+
+		&__header {
+			display: flex;
+			justify-content: flex-start;
+			width: 70%;
+			text-align: left;
+			font-size: 17px;
+			padding-bottom: $gap8;
+		}
+		.modalWindow__text-btn {
+			@include text-btn($textSecondaryDark, $textSecondaryDark_hover, $fontLargeSize, 500);
+			font-size: 16px;
+		}	
+		
+		&__title-wrap {
+			display: flex;
+		}
+		&__text {
+			color: $textMainDark;
+			margin: 0 auto;
+			width: calc(100% - 32px);
+		}
+		&__textarea {
+			font-size: $fontSizeSmall;
+			height: 198px;
+			min-height: auto;
+			margin: 0 auto;
+			width: calc(100% - 32px);
+		}
+		.btn-shape__filled {			
+			justify-self: center;
+			max-width: 600px;
+			height: 48px;
+			width: calc(100% - 32px);
+			font-size: $fontSizeSmall;
+			padding: $gap16;
+			margin-top: auto;
+			margin-left: auto;
+			margin-right: auto;
+		}		
+	}
+}

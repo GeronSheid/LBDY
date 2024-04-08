@@ -1,0 +1,53 @@
+@import "./password";
+@import "./service";
+
+.icon {
+  &__password-control {
+    @include passwordControlIcon();
+  }
+
+  &__download {
+    @include downloadIcon();
+  }
+
+  &__access-toggle {
+    @include accessToggleIcon();
+  }
+
+  &__delete-item {
+    @include deleteItemIcon();
+  }
+
+  &__search-input {
+    fill: $colorFormLightGray;
+    position: absolute;
+    right: $gapGrid;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: fill $transitionSettings;
+  }
+
+  &__edit {
+    fill: $colorMainGrayOpacity40;
+    stroke: $colorMainGrayOpacity40;
+
+    transition: fill $transitionSettings, stroke $transitionSettings;
+
+    &:hover {
+      fill: $colorMainGreenHover;
+      stroke: $colorMainGreenHover;
+    }
+
+    &:focus,
+    &:active {
+      fill: $colorMainGreenFocus;
+      stroke: $colorMainGreenFocus;
+    }
+  }
+}
+
+.field_invalid .icon {
+  &__password-control {
+    fill: $colorInvalidRed !important;
+  }
+}

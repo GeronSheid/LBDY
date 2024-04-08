@@ -1,0 +1,164 @@
+//=============  COLORS  =============
+
+$colorBackground: #f4f4f4;
+$colorBlack: #000;
+$colorWhite: #fff;
+// $textSecondary: #00000066;
+$colorWhiteOpacity70: rgba(255, 255, 255, 0.7);
+$colorWhiteOpacity50: #ffffff80;
+$colorWhiteOpacity20: rgba(255, 255, 255, 0.2);
+$colorModalBackground: rgba($color: #000, $alpha: 0.5);
+
+
+$colorMainGreen: #56a437;
+$colorMainGreenHover: #49902e;
+$colorMainGreenExtraHover: #72cc4e33;
+$colorMainGreenFocus: #46852d;
+
+$colorFormLightGray: #687074b3;
+$colorFormDarkGray: #3f484d;
+$colorMainGray: #687074;
+$colorMainGrayOpacity40: #68707466;
+
+$colorInvalidRed: rgba(235, 0, 27, 0.702);
+$colorInvalidRedDark: rgba(159, 0, 19, 0.702);
+$colorInvalidRedOpacity40: #eb001b66;
+$colorInvalidRedOpacity100: rgba(235, 0, 27, 1);
+
+//=============  VALUES  =============
+
+$fontThinSize: 14px;
+$fontSmallSize: 16px;
+$fontMediumSize: 20px;
+$fontLargeSize: 24px;
+
+$gap8: 8px;
+$gap12: 12px;
+$gap16: 16px;
+$gap18: 18px;
+$gapGrid: 24px;
+$gap32: 32px;
+$gap40: 40px;
+
+$borderRadius: 26px;
+
+$selectBoxMaxHeight: 250px;
+$containerStandardHeight: 320px;
+
+//=============  OTHERS =============
+$transitionSettings: 0.1s ease-in-out;
+$moduleBoxShadow: 0px 4px 11px 0px rgba(0, 0, 0, 0.1);
+$scrollbarHeight: 62px;
+$selectBoxArrowSize: 24px;
+$modalMaxWidth: 900px;
+
+
+
+
+//--- Цвета ---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+$mainColor: #54a323;
+$mainColor_hover: #6ed13033;
+$mainColor_focus: #4a992b;
+
+
+//--- Цвета для UI элементов ------------------------------------------------------------------------------------------------------------------------------------------
+$borderLight: #ffffffb3;
+$borderLight_hover: #fff;
+$borderLight_hover-green: #54a323;
+$borderLigth_invalid: #c5616f;
+$borderDark: rgb(151, 151, 151);
+$borderDark_hover: #333;
+$borderDark_hover-green: #54a323;
+$borderDark_invalid: #eb001b80;
+$borderMobileMenu: #3c3c435c;
+$borderDarkDivider: rgba(151, 151, 151, 0.5);
+
+
+$backgroundLight_day: #fff;
+$backgroundLightSecondary_day: #f4f4f4;
+$backgroundLight_night: #3f484d;
+$backgroundDark_day: #687074;
+$backgroundDark_night: #3f484d;
+$backgroundShade: #eeedeb;
+
+$tooltipBackground: #6a6a6a;
+
+
+
+//--- Типографика ------------------------------------------------------------------------------------------------------------------------------------------
+
+
+//--- Цвета для типографики ------------------------------------------------------------------------------------------------------------------------------------------
+
+$textMainLight: #fff;
+$textMainLight_invalid: #ff6779;
+$textMainDark: #333;
+$textMainDark_invalid: #cb0707;
+
+$textSecondaryLight: #ffffff66;
+$textSecondaryGray: #979797;
+$textSecondaryLight_hover: #fff;
+$textSecondaryLight_invalid: #ff677980;
+$textSecondaryDark: #33333366;
+$textSecondaryDark_hover: #333;
+$textSecondaryDark_invalid: #eb001b80;
+
+
+//--- Размеры шрифтов ------------------------------------------------------------------------------------------------------------------------------------------
+
+$fontSizeThin: 14px;
+$fontSizeSmall: 16px;
+$fontSizeMedium: 20px;
+$fontSizeLarge: 24px;
+
+
+//--- Разметка ------------------------------------------------------------------------------------------------------------------------------------------
+
+$tabletMaxWidth: 1440px;
+$mobileMaxWidth: 1024px;
+$tabletMaxHeight: 960px;
+$mobileMaxHeight: 600px;
+$containerStandardHeight: 31vh;
+$containerTabletHeight: 220px;
+
+
+//--- Отступы ------------------------------------------------------------------------------------------------------------------------------------------
+
+$gap4: 4px;
+$gap8: 8px;
+$gap12: 12px;
+$gap14: 14px;
+$gap16: 16px;
+$gap18: 18px;
+$gap20: 20px;
+$gap24: 24px;
+$gap32: 32px;
+$gap40: 40px;
+
+
+//--- Параметры UI элементов ------------------------------------------------------------------------------------------------------------------------------------------
+
+$borderRadius: 26px;
+$selectBoxMaxHeight: 250px;
+
+
+//--- Размеры UI элементов ------------------------------------------------------------------------------------------------------------------------------------------
+
+$selectBoxArrowSize: 24px;
+
+
+//--- Параметры модальных окон ------------------------------------------------------------------------------------------------------------------------------------------
+
+$modalMaxWidth: 900px;
+$moadalTabletMaxWidth: 900px;
+$modalTabletMaxWidth: 600px;
+
+
+
+$borderParams: 1px solid $borderDarkDivider;
+
+
+
+
+

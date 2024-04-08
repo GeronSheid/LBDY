@@ -1,0 +1,80 @@
+.form {
+  align-items: start;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+
+  &_active {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__wrapper {
+    display: none;
+    height: 100%;
+    width: 100%;
+
+    &_active {
+      display: flex !important;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+
+  &__fieldset {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__drop-zone {
+    align-items: center;
+    border-radius: $borderRadius;
+    color: $colorWhiteOpacity50;
+    display: flex;
+    font-size: $fontMediumSize;
+    height: 150px;
+    justify-content: center;
+    outline: 1px dashed $colorWhiteOpacity70;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    cursor: pointer;
+    transition: all .1s ease-in;
+
+    &:hover {
+      color: #FFF;
+      outline-color: #fff;
+    }
+
+    &_dark {
+      color: $colorFormLightGray;
+      outline: 1px dashed $colorFormLightGray;
+      &:hover {
+        color: $colorMainGreen;
+        outline-color: $colorMainGreen;
+      }
+    }
+  }
+
+
+
+  &__head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: $tabletMaxWidth), (max-height: $tabletMaxHeight) {
+  .form {
+    &__drop-zone .input-submit {
+      font-size: 16px;
+    }
+  }
+}

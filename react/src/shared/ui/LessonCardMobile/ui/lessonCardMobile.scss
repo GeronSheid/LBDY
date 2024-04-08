@@ -1,0 +1,39 @@
+@import 'app/styles/shared.scss';
+
+.lessonCardMobile {
+  @include container($gap20 $gap16, 0, 0, 0, true, false, 0);
+  width: auto;
+  color: $textMainLight;
+  background-color: $backgroundDark_day;
+  min-height: 165px;
+  &_active {
+    background-color: $mainColor;
+  }
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: $gap16;
+    padding-bottom: $gap8;
+    font-size: $fontSizeSmall;
+    border-bottom: 1px solid $textMainLight;
+  }
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 16px;
+    & > b {
+      font-size: 16px;
+    }
+    & > span {
+      font-size: $fontSizeThin;
+    }
+  }
+  &__time {
+    margin-bottom: $gap8;
+    font-size: $fontSizeThin;
+  }
+  &__teacher {
+    font-size: $fontSizeThin;
+  }
+}

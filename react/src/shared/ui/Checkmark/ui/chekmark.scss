@@ -1,0 +1,33 @@
+.checkmark {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  background-color: #3f484d;
+  border-radius: 44px;
+  min-width: fit-content;
+  max-width: fit-content;
+
+  &__img {
+    height: 32px;
+    width: 32px;
+    background-color: #fff;
+    border: 1px solid #fff;
+    border-radius: 50%;
+  }
+
+  &__label {
+      color: #fff;
+      font-size: 20px;
+  }
+
+  &__btn {
+    width: 24px;
+    height: 24px;
+
+    & svg {
+      fill: #fff;
+    }
+  }
+}

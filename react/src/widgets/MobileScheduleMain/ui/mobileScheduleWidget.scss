@@ -1,0 +1,26 @@
+@import 'app/styles/shared.scss';
+
+.mobileScheduleWidget {
+  position: relative;
+  height: 240px;
+  grid-column: 1/-1;
+  margin-bottom: $gap32;
+  z-index: 1000;
+  &__legend {
+    position: relative;
+    width: calc(100% - 16px);
+    display: flex;
+    justify-content: space-between;
+    margin: 0 $gap8 $gap16 $gap8;
+    &::after {
+      content: url('shared/assets/img/arrow-black.png');
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      right: 0;
+    }
+  }
+  &__slider-slide {
+    height: 200px;
+  }
+}

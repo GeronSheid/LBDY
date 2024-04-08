@@ -1,0 +1,7 @@
+@import 'app/styles/shared.scss';
+
+.paymentTypes {
+  &__legend {
+    margin-bottom: $gapGrid !important;
+  }
+}

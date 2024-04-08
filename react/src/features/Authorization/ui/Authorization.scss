@@ -1,0 +1,107 @@
+@import "../../../app/styles/shared.scss";
+
+.login {
+ &__wrapper {
+   align-items: center;
+   display: flex;
+   justify-content: center;
+   margin-bottom: calc($gap32 - $gapGrid);
+   grid-column: span 10;
+ }
+}
+
+.container {
+ @include container($gapGrid, 4, 8, $gap16, true, true, $gapGrid);
+ max-width: 600px;
+
+ #login-form,
+ #code-to-reset-form,
+ #reset-pwd-form {
+   height: 344px;
+ }
+
+ #registration-form {
+   height: 684px;
+ }
+}
+
+.form {
+ display: none;
+
+ &__fieldset {
+   margin-bottom: $gapGrid;
+ }
+
+ &__descr {
+   font-size: $fontMediumSize;
+   margin-bottom: $gapGrid;
+ }
+
+ &__link {
+   color: $colorMainGreen;
+   transition: color $transitionSettings;
+
+   &:hover {
+     color: $colorMainGreenHover;
+   }
+
+   &:focus,
+   &:active {
+     color: $colorMainGreenFocus;
+   }
+ }
+}
+
+.field {
+ &__password {
+   position: relative;
+
+   &:focus {
+     outline: none;
+   }
+
+   &:focus .field__input {
+     outline-color: $colorBlack;
+   }
+
+   &:hover .field__input::placeholder {
+     color: $colorFormLightGray;
+   }
+ }
+
+ &:not(:last-child) {
+   margin-bottom: $gapGrid;
+ }
+}
+
+.input {
+ &__checkbox {
+   &:not(:last-child) {
+     margin-bottom: $gap32;
+   }
+
+   &-descr {
+     @include textMedium($colorMainGray);
+
+     font-size: $fontSmallSize;
+     transition: color $transitionSettings;
+
+     &:hover {
+       color: $colorMainGreenHover;
+     }
+   }
+ }
+}
+
+#registration-form-step-3 .field:nth-last-child(3) {
+ margin-bottom: calc(#{$gapGrid} * 2);
+}
+
+#swapGroupMethod {
+ display: none;
+ margin-bottom: $gapGrid !important;
+}
+
+#inputGroupField {
+ display: none;
+}

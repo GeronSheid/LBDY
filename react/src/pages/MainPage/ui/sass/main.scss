@@ -1,0 +1,132 @@
+@import "../../../../app/styles/shared";
+@import "./modals";
+@import "./projects";
+@import "./reminders";
+@import "./schedule";
+
+.change-dates {
+  display: flex;
+  font-size: $fontThinSize;
+  grid-column: 1 / -1;
+  height: $gapGrid;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  &__btn {
+    align-items: center;
+    display: flex;
+
+    svg {
+      transition: fill $transitionSettings;
+    }
+
+    span {
+      transition: color $transitionSettings;
+    }
+    &:hover {
+      svg {
+        fill: $colorMainGreenHover;
+      }
+
+      span {
+        color: $colorMainGreenHover;
+      }
+    }
+
+    &:focus,
+    &:active {
+      svg {
+        fill: $colorMainGreenFocus;
+      }
+
+      span {
+        color: $colorMainGreenFocus;
+      }
+    }
+  }
+}
+
+.validationText {
+  color: rgba(235, 0, 27, 0.702);
+  font-size: 0.5em;
+  left: 44px;
+  position: absolute;
+  top: 57%;
+}
+
+.mobileScheduleModalView {
+  &-enter {
+    transform: translateX(-105%);
+  }
+
+  &-enter-active {
+    transform: translateX(0);
+    transition: transform 300ms ease-in;
+  }
+  &-exit {
+    transform: translateX(0);
+  }
+  &-exit-active {
+    transform: translateX(-100%);
+    transition: transform 300ms ease-in;
+  }
+}
+
+.mobileFilters {
+  &-enter {
+    opacity: 0;
+  }
+  &-enter-active {
+    opacity: 1;
+    transition: opacity 300ms ease-in;
+  }
+  &-exit {
+    opacity: 1;
+  }
+  &-exit-active {
+    opacity: 0;
+    transition: opacity 300ms ease-in;
+  }
+}
+
+
+.mobileScheduleModalView {
+  &-enter {
+    transform: translateX(-105%);
+  }
+
+  &-enter-active {
+    transform: translateX(0);
+    transition: transform 300ms ease-in;
+  }
+  &-exit {
+    transform: translateX(0);
+  }
+  &-exit-active {
+    transform: translateX(-100%);
+    transition: transform 300ms ease-in;
+  }
+}
+
+.mobileFilters {
+  &-enter {
+    opacity: 0;
+  }
+  &-enter-active {
+    opacity: 1;
+    transition: opacity 300ms ease-in;
+  }
+  &-exit {
+    opacity: 1;
+  }
+  &-exit-active {
+    opacity: 0;
+    transition: opacity 300ms ease-in;
+  }
+}
+
+.input__checkbox-descr-main {
+  font-size: $fontMediumSize;
+  cursor: pointer;
+}

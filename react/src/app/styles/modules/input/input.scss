@@ -1,0 +1,163 @@
+@import "./checkbox";
+@import "./simple-input";
+@import "./textarea";
+
+.input {
+  background-color: transparent;
+  border: none;
+}
+
+.input {
+  &__simple-input {
+    &_light {
+      @include simpleInputLight();
+    }
+    &_dark {
+      @include simpleInputDark();
+      
+    }
+    &_small {
+      padding: $gap16 $gap32;
+    }
+  }
+
+  &__textarea {
+    &_dark {
+      @include textareaInputDark();
+      .textarea-content {
+        &::placeholder {
+          color: $textSecondaryLight;
+        }
+      }
+    }
+
+    &_light {
+      @include textareaInputLight();
+    }
+  }
+}
+
+.field_invalid .input {
+  &__checkbox {
+    display: flex;
+    &_mark {
+      &-label::before {
+        border-color: $colorInvalidRed;
+      }
+    }
+  }
+
+  &__simple-input {
+    color: $colorInvalidRed;
+    outline: 2px solid $colorInvalidRed !important;
+
+    &::placeholder {
+      color: $colorInvalidRedOpacity40 !important;
+    }
+  }
+
+  &__simple-input_dark {
+    &::placeholder {
+      color: $colorInvalidRedOpacity40 !important;
+    }
+  }
+
+
+
+  &__checkbox {
+    @include checkBoxContainer();
+
+    &_toggle {
+      @include toggle();
+    }
+
+    &-descr-main {
+      color: $colorWhite;
+      cursor: pointer;
+      font-size: $fontMediumSize;
+      display: inline-block;
+      margin-left: 15px;
+      -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+      -khtml-user-select: none; /* Konqueror HTML */
+      -moz-user-select: none; /* Old versions of Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+      user-select: none; /* Non-prefixed version, currently
+                                      supported by Chrome, Edge, Opera and Firefox */
+    }
+  }
+}
+
+
+.textarea-content {
+  width: 100%;
+  min-height: 80px;
+  color: inherit;
+  background-color: inherit;
+  border: none;
+  resize: none;
+  outline: none;
+  scrollbar-width: 5px;
+  &::placeholder {
+    color: $textSecondaryDark;
+  }
+  .input__textarea_light:hover &::placeholder{
+    color: $borderLight_hover-green !important;
+  }
+  .input__textarea_dark:hover &::placeholder{
+    color: $textSecondaryLight_hover !important;
+  }
+  &::-webkit-scrollbar {
+    opacity: 0;
+    width: 5px;
+  }
+}
+
+@media (max-width: $tabletMaxWidth), (max-height: $tabletMaxHeight) {
+  .input {
+    &__simple-input {
+      &_dark {
+        font-size: $fontSizeSmall;
+        padding: 20px 24px;
+      }
+      &_light {
+        font-size: $fontSizeSmall;
+        padding: 20px 24px;
+      }
+    }
+  }
+  .input__checkbox-descr-main {
+    font-size: $fontSizeSmall;
+  }
+  .textarea-content {
+    font-size: $fontSizeSmall;
+  }
+}
+
+@media (max-width: $mobileMaxWidth), (max-height: $mobileMaxHeight) {
+  .input {
+    &__simple-input {
+      &_dark {
+        padding: $gap16;
+      }
+      &_light {
+        padding: $gap16;
+      }
+    }
+    &__textarea {
+      &_dark {
+        padding: $gap16;
+      }
+      &_light {
+        padding: $gap16;
+      }
+    }
+    &__checkbox {
+      flex-direction: column;
+    }
+  }
+  .input__checkbox-descr-main {
+    font-size: $fontSizeSmall;
+    color: $textSecondaryDark;
+  }
+}

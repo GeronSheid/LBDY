@@ -1,0 +1,13 @@
+// const PLATFORM = '/platform'
+export const MAIN_ROUTE = '/'
+export const AUTH_ROUTE ='/authorization'
+export const REGISTRATION_ROUTE ='/registration'
+export const RECOVERY_ROUTE ='/recovery'
+export const KNOWLEDGE_BASE ='/knowledge_base'
+export const ABOUT_UNIVERSITY ='/about_university'
+export const PROFILE ='/profile'
+export const CONTACTS ='/contacts'
+export const PHONE_ALREADY_IS ='/phoneAlreadyIs'
+export const PROJECT ='/project'
+export const PAGE_NOT_FOUND ='/pageNotFound'
+export const LANDING_PATH = "https://lbdy.ru/"
